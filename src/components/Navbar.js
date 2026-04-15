@@ -408,7 +408,7 @@ const ServiceItem = ({ icon, text, path, isVisible }) => (
       isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
     }`}
   >
-    <div className="w-25 h-25 flex items-center justify-center shrink-0">
+    <div className="w-20 h-20 flex items-center justify-center shrink-0">
       <img
         loading="lazy"
         src={icon}
@@ -418,7 +418,7 @@ const ServiceItem = ({ icon, text, path, isVisible }) => (
     </div>
 
     <Link href={path}>
-      <div className="text-sm hover:text-gray-400">{text}</div>
+      <div className="text-xs uppercase tracking-[3.36px] font-medium hover:text-gray-400">{text}</div>
     </Link>
   </div>
 );
@@ -428,7 +428,7 @@ const ServiceItem2 = ({ icon, text, path, isVisible }) => (
       isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
     }`}
   >
-    <div className="w-25 h-25 flex items-center justify-center shrink-0">
+    <div className="w-20 h-20 flex items-center justify-center shrink-0">
       <img
         loading="lazy"
         src={icon}
@@ -438,7 +438,7 @@ const ServiceItem2 = ({ icon, text, path, isVisible }) => (
     </div>
 
     <Link href={path}>
-      <div className="text-sm hover:text-gray-400">{text}</div>
+      <div className="text-xs uppercase tracking-[3.36px] font-medium hover:text-gray-400">{text}</div>
     </Link>
   </div>
 );

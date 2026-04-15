@@ -1064,7 +1064,7 @@ function Home() {
                   <p>
                     Every single day, we endeavour to make more customers across continents benefit from our work as a step to enhance reliability & safety in the electrical network.
                   </p>
-                  <p>Over the last 30 years of our existence, we have served more than 3000+ customers in 28 countries. Consistently meeting & exceeding their expectations at every given opportunity, we at Team JEF have created a formidable track record for ourselves.
+                  <p>Over the last 30 years of our existence, we have served more than 3000+ customers in 30 countries. Consistently meeting & exceeding their expectations at every given opportunity, we at Team JEF have created a formidable track record for ourselves.
                   </p>
                   <p>No wonder customers <span className="font-medium">THINK "JEF"</span> when they <span className="font-medium">THINK ELECTRICAL</span> engineering.
                   </p>
