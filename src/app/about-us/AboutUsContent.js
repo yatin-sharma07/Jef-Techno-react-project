@@ -785,7 +785,7 @@ const sectors = [
     { name: "Power Utilities", imageSrc: "./AboutUs/PoweUtilities.png", altText: "Water sector icon" },
     { name: "Manufacturing Plant", imageSrc: "./AboutUs/MFplant.png", altText: "Technology and Digital sector icon" },
     { name: "Process Plant", imageSrc: "./AboutUs/ProcessPlant.png", altText: "Entertainment and Culture sector icon" },
-    { name: "Commercial Buildings", imageSrc: "./AboutUs/CBimg.png", altText: "Education, Research, and Innovation sector icon" },
+    { name: "Data centers", imageSrc: "./AboutUs/data-centers-icon.png", altText: "Education, Research, and Innovation sector icon" },
 ];
 
 function SectorIcon({ name, imageSrc, altText }) {
