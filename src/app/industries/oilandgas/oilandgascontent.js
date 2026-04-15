@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link';
 import ContactUs from '../../../components/ContactUs';
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -368,46 +369,66 @@ function OilandGas() {
 
 
 
-const NavigationItem = ({ text, isActive }) => (
-    <div className="flex items-center self-stretch my-auto">
-        <div
-            className={`self-stretch my-auto text-xs tracking-wide leading-none uppercase ${isActive ? 'text-white' : 'text-red-700'
-                }`}
-        >
-            {text}
+
+
+const NavigationItem = ({ text, href, isActive, isLast }) => (
+  <div className="flex items-center self-stretch my-auto">
+
+    <Link href={href}>
+      <div
+        className={`self-stretch my-auto text-xs tracking-wide leading-none uppercase cursor-pointer transition-colors duration-200 ${
+          isActive ? "text-white" : "text-red-700 hover:text-white"
+        }`}
+      >
+        {text}
+      </div>
+    </Link>
+
+    {!isLast && (
+      <div className="flex flex-col self-stretch px-2.5 my-auto w-[27px]">
+        <div className="flex items-center w-[7px]">
+          <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3113f381f331fdc6efbe3c0ae79c9bb98472ae04eaff8d3d44a215b51f8c5927"
+              alt=""
+              className="object-contain flex-1 w-full aspect-square"
+            />
+          </div>
         </div>
-        {!isActive && (
-            <div className="flex flex-col self-stretch px-2.5 my-auto w-[27px]">
-                <div className="flex items-center w-[7px]">
-                    <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
-                        <img
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3113f381f331fdc6efbe3c0ae79c9bb98472ae04eaff8d3d44a215b51f8c5927?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            alt=""
-                            className="object-contain flex-1 w-full aspect-square"
-                        />
-                    </div>
-                </div>
-            </div>
-        )}
-    </div>
+      </div>
+    )}
+
+  </div>
 );
 
-const navigationItems = [
-    { text: 'HOME', isActive: false },
-    { text: 'Industries', isActive: false },
-    { text: 'Oil and gas', isActive: true },
-];
+const Navigation = () => {
+  const pathname = usePathname();
 
-const Navigation = () => (
+  const navigationItems = [
+    { text: "HOME", href: "/" },
+    { text: "INDUSTRIES", href: "/industries" },
+    { text: "OIL AND GAS", href: "/industries/oilandgas" },
+  ];
+
+  return (
     <nav className="flex flex-col justify-center items-start px-16 py-6 bg-stone-900 max-md:px-5">
-        <div className="flex gap-y-2 flex-wrap items-center max-md:max-w-full">
-            {navigationItems.map((item, index) => (
-                <NavigationItem key={index} {...item} />
-            ))}
-        </div>
+      <div className="flex gap-y-2 flex-wrap items-center max-md:max-w-full">
+
+        {navigationItems.map((item, index) => (
+          <NavigationItem
+            key={index}
+            text={item.text}
+            href={item.href}
+            isActive={pathname === item.href}
+            isLast={index === navigationItems.length - 1}
+          />
+        ))}
+
+      </div>
     </nav>
-);
+  );
+};
 
 
 

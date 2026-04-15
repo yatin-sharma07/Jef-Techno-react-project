@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link'
 import ContactUs from '../../components/ContactUs';
+import { usePathname } from 'next/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -856,45 +857,70 @@ function ExcellenceinElectricalEngineering() {
 
 
 
-const NavItem = ({ text, isActive }) => (
+
+
+const NavItem = ({ text, href, isActive }) => (
+  <Link href={href}>
     <div
-        className={`self-stretch my-auto text-sm tracking-wide leading-none uppercase whitespace-nowrap ${isActive ? 'text-red-700' : 'text-neutral-300'
-            }`}
+      className={`self-stretch my-auto text-sm tracking-wide leading-none uppercase whitespace-nowrap cursor-pointer transition-colors duration-200 ${
+        isActive ? "text-red-700" : "text-neutral-300 hover:text-white"
+      }`}
     >
-        {text}
+      {text}
     </div>
+  </Link>
 );
 
 const NavSeparator = () => (
-    <div className="flex flex-col self-stretch px-2.5 my-auto w-[27px]">
-        <div className="flex items-center w-[7px]">
-            <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
-                <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/9ecd639edcb67e10ac6f387cbff68bf06de70ace3f0ab81ee573f986b41e67b7?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                    className="object-contain flex-1 w-full aspect-square"
-                    alt=""
-                />
-            </div>
-        </div>
+  <div className="flex flex-col self-stretch px-2.5 my-auto w-[27px]">
+    <div className="flex items-center w-[7px]">
+      <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/9ecd639edcb67e10ac6f387cbff68bf06de70ace3f0ab81ee573f986b41e67b7"
+          className="object-contain flex-1 w-full aspect-square"
+          alt=""
+        />
+      </div>
     </div>
+  </div>
 );
 
 const Navigation = () => {
-    return (
-        <nav className="flex flex-col justify-center px-24 py-6 bg-stone-900 max-md:px-5">
-            <div className="flex w-full max-md:max-w-full">
-                <div className="flex items-center h-full">
-                    <div className="flex text-xs items-center self-stretch my-auto">
-                        <NavItem text="HOME" isActive={true} />
-                        <NavSeparator />
-                    </div>
-                    <NavItem text="About" isActive={false} />
-                </div>
+  const pathname = usePathname();
+
+  const navItems = [
+    { text: "HOME", href: "/" },
+    { text: "ABOUT", href: "/about-us" },
+  ];
+
+  return (
+    <nav className="flex flex-col justify-center px-24 py-6 bg-stone-900 max-md:px-5">
+      <div className="flex w-full max-md:max-w-full">
+        <div className="flex items-center h-full">
+
+          {navItems.map((item, index) => (
+            <div key={index} className="flex items-center">
+
+              <NavItem
+                text={item.text}
+                href={item.href}
+                isActive={pathname === item.href}
+              />
+
+              {/* separator except last */}
+              {index !== navItems.length - 1 && <NavSeparator />}
+
             </div>
-        </nav>
-    );
+          ))}
+
+        </div>
+      </div>
+    </nav>
+  );
 };
+
+
 
 
 export default AboutUsContent;
