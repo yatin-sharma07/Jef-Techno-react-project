@@ -290,7 +290,7 @@ const Navbar = () => {
             )}
             {activeSection === 'Our Industries' && (
                 <div
-                    onMouseEnter={() => handleMenuHover('Industries')}
+                    onMouseEnter={() => handleMenuHover('Our Industries')}
                     onMouseLeave={handleMouseLeave}
                 >
                     <IndustriesComponent />
@@ -443,22 +443,22 @@ function ServicesComponent() {
 
    const services = [
   {
-    icon: '/es-nav-logo.png',
+    icon: '/nav-earthing-icon.png',
     text: 'EARTHING STUDIES',
     path: '/earthing-studies',
   },
   {
-    icon: '/lps-nav-logo.png',
+    icon: '/nav-lightning-protection-icon.png',
     text: 'LIGHTNING PROTECTION STUDIES',
     path: '/lightning-protection-studies',
   },
   {
-    icon: '/solution-nav5.png', 
+    icon: '/nav-ese-icon.png', 
     text: 'ESE',
     path: '/ese-lightning-protection',
   },
   {
-    icon: '/solution-nav2.png',
+    icon: '/nav-design-service-icon.png',
     text: 'DESIGN SERVICES',
     path: '/earthing-design',
   },
@@ -466,39 +466,39 @@ function ServicesComponent() {
 
   const services2 = [
   {
-    icon: '/es-nav-logo.png',
+    icon: '/nav-esa-icon.png',
     text: 'ESA',
     path: '/earthing-studies',
   },
   {
-    icon: '/es-nav-logo.png',
+    icon: '/nav-audit-icon.png',
     text: 'EARTHING AUDIT STUDIES',
     path: '/earthing-studies',
   },
   {
-    icon: '/ie-logo.png',
+    icon: '/nav-istrumentation-icon.png',
     text: 'INSTRUMENTATION EARTHING',
     path: '/instrumentation-earthing-studies',
   },
   {
-    icon: '/pss-nav-logo.png',
+    icon: '/nav-power-studies-icon.png',
     text: 'POWER STUDIES',
     path: '/power-system-studies',
   },
   {
-    icon: '/lps-nav-logo.png',
+    icon: '/nav-lps-icon.png',
     text: 'LPS STUDIES',
     path: '/lightning-protection-studies',
   },
 ];
  const services3 = [
   {
-    icon: '/solution-nav3.png', // industrial type icon
+    icon: '/nav-industrial-icon.png', // industrial type icon
     text: 'INDUSTRIAL',
     path: '/industrial',
   },
   {
-    icon: '/solution-nav5.png',
+    icon: '/nav-renewable-icon.png',
     text: 'RENEWABLE',
     path: '/renewable',
     subItems: [
@@ -684,7 +684,7 @@ function IndustriesComponent() {
         { icon: '../AboutUs/PoweUtilities.png', text: 'Power Utilities', path: '/industries/powerutilities' },
         { icon: '../AboutUs/MFplant.png', text: 'Manufacturing Plant', path: '/industries/manufacturingplant' },
         { icon: '../AboutUs/ProcessPlant.png', text: 'Process Plant', path: '/industries/processplant' },
-        { icon: '../AboutUs/CBimg.png', text: 'Commercial Buildings', path: '/industries/commercialbuilding' },
+        { icon: '../AboutUs/CBimg.png', text: 'Data Centers', path: '/industries/commercialbuilding' },
         { icon: '../AboutUs/RenewableEnergy.png', text: 'Renewable Energy', path: '/industries/renewableenergy' },
     ];
 
