@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link';
+import { AnimatePresence,motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,51 +137,33 @@ const IES = () => {
       );
     });
   }, []);
-
-  const services = useMemo(() => [
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: './HomePageImg/WhatWeDoSection/Earthing Studies 2.png', text: 'Grounding System Studies', path: '/grounding-system-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Lightning Protection 2.png', text: 'Lightning protection system studies', path: '/lightning-protection-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Power System Studies 2.png', text: 'Power system studies', path: '/power-system-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png', text: 'Power quality', path: '/power-quality-studies' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: './HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png', text: 'Instrumentation earthing', path: '/instrumentation-earthing-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Emi Emc 2.jpg', text: 'EMI EMC', path: '/emi-emc' },
-    { image: './HomePageImg/WhatWeDoSection/Root Cause Analysis 2.jpg', text: 'Root cause analysis', path: '/root-cause-analysis' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-  ], []);
-
-  const services2 = useMemo(() => [
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: './HomePageImg/WhatWeDoSection/Earthing Studies 2.png', text: 'Grounding System Studies', path: '/grounding-system-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Lightning Protection 2.png', text: 'Lightning protection system studies', path: '/lightning-protection-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Power System Studies 2.png', text: 'Power system studies', path: '/power-system-studies' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: './HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png', text: 'Power quality', path: '/power-quality-studies' },
-    { image: './HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png', text: 'Instrumentation earthing', path: '/instrumentation-earthing-studies' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-    { image: '', text: '', path: '' },
-  ], []);
-
+const services = useMemo(() => [
+  {
+    image: './HomePageImg/WhatWeDoSection/Earthing Studies 2.png',
+    text: 'Earthing studies',
+    path: '/earthing-studies',
+  },
+  {
+    image: './HomePageImg/WhatWeDoSection/Lightning Protection 2.png',
+    text: 'Lightning protection system studies',
+    path: '/lightning-protection-studies',
+  },
+  {
+    image: './HomePageImg/WhatWeDoSection/Power System Studies 2.png',
+    text: 'Power system studies',
+    path: '/power-system-studies',
+  },
+  {
+    image: './HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png',
+    text: 'Power quality & root cause analysis',
+    path: '/power-quality-studies',
+  },
+  {
+    image: './HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png',
+    text: 'Instrumentation earthing',
+    path: '/instrumentation-earthing-studies',
+  },
+], []);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [backgroundImage, setBackgroundImage] = useState('');
   const serviceRefs = useRef([]);
@@ -234,28 +217,8 @@ const IES = () => {
     });
   }, [hoveredIndex, services]);
 
-  useEffect(() => {
-    service2Refs.current = service2Refs.current.slice(0, services2.length);
-  }, [services2]);
+ 
 
-  useEffect(() => {
-    service2Refs.current.forEach((ref, index) => {
-      if (ref) {
-        if (index === hoveredIndex && services2[index]?.text !== '') {
-          gsap.to(ref, { scale: 1.3, opacity: 1, duration: 0.2, ease: 'power2.inOut' });
-        } else {
-          gsap.to(ref, {
-            scale: hoveredIndex !== null ? 0.9 : 1,
-            opacity: hoveredIndex !== null ? 0.5 : 1,
-            // border: hoveredIndex !== null && services2[index]?.text === '' ? '1px solid white' : '',
-            backgroundColor: hoveredIndex !== null && services2[index]?.text === '' ? 'transparent' : '',
-            duration: 0.2,
-            ease: 'power2.inOut'
-          });
-        }
-      }
-    });
-  }, [hoveredIndex, services2]);
 
 
   const navItems = [
@@ -331,7 +294,7 @@ const IES = () => {
           </video>
           <div className="flex Y-axis-text-Title-Service1 inset-y-3/4 lg:-mt-[2%] 2xl:mt-0 lg:inset-x-20 p-4 relative flex-col self-center w-full max-md:mt-10 max-md:max-w-full mb-0 mx-40 max-w-full max-md:mb-2.5">
             <h1 className=" lg:text-5xl md:text-4xl text-3xl font-bold my-auto tracking-wider text-white max-md:max-w-full max-md:text-4xl">
-              INSTRUMENTATION EARTHING STUDIES
+              INSTRUMENTATION EARTHING 
             </h1>
             <div className="flex gap-6 items-center self-start mt-8 text-lg uppercase text-neutral-900  max-md:mt-10">
               <Link href={'/get-in-touch'}>
@@ -375,27 +338,28 @@ const IES = () => {
           </div>
         </nav>
         <div className="flex ContactUsAnimation justify-center items-end self-center px-80 mt-24 max-w-full min-h-[80px] w-[770px] max-md:px-5 max-md:mt-10">
-          <img loading="lazy" src="./SerivePage/IELogo.png" alt="Earthing Studies Logo" className="object-contain w-16 aspect-square" />
+          <img loading="lazy" src="./SerivePage/Earthingicon.png" alt="Earthing Studies Logo" className="object-contain w-16 aspect-square" />
         </div>
         <header className="flex p-4 ContactUsAnimation flex-col items-center self-center mt-10 w-full text-base text-center text-white max-w-[1391px] max-md:mt-10 max-md:max-w-full">
-          <h1 className="flex flex-col max-w-full text-2xl  font-medium uppercase leading-relaxed tracking-wider w-[1071px]">
-            <div className="w-full max-md:max-w-full">
-              JEF CAPABILITY
-            </div>
-          </h1>
-          <p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
-            JEF is a pioneer in delivering top-tier Instrumentation Grounding audits and studies that ensure the safety and reliability of critical systems. Our experience extends across 150+ control rooms & instrumentation panel rooms, where we have meticulously audited over 5,900+ panels, 29,000+ junction boxes and 64000+ field assets or field instruments.
-          </p>
-          <p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
-            Our comprehensive audits are designed to identify and mitigate potential risks,
-            enhancing system performance, reliability and ensuring compliance with industry
-            standards. With a focus on quality and precision, we provide actionable insights to
-            optimize Grounding systems, safeguard equipment, and ensure the highest level of
-            operational integrity.
-          </p>
-          <p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
-            Partner with JEF for unparalleled expertise in Instrumentation Grounding audits and
-            experience the difference in safety, efficiency and reliability of your operations.</p>
+         <div className="w-full text-3xl max-md:max-w-full">
+  THE PROBLEM: WHY INSTRUMENTATION SYSTEMS FAIL IN WELL-MAINTAINED PLANTS
+</div>
+
+<p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
+  Process plants and industrial facilities invest significantly in their instrumentation and control infrastructure — DCS systems, PLCs, 4–20 mA signal loops, Foundation Field Bus, HART protocols, transmitters, junction boxes, and field instruments. These systems are carefully designed, commissioned, and regularly maintained.
+</p>
+
+<p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
+  Yet across industries and geographies, the familiar pattern of problems recurs unexplained trips, nuisance alarms, signal drifts, communication failures, and intermittent malfunctions that are not only difficult to diagnose but more challenging to eliminate.
+</p>
+
+<p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
+  In the majority of cases, the root cause is not the instrument by itself. It is the earthing system that underpins it.
+</p>
+
+<p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light text-red-600 max-md:mt-10 max-md:max-w-full">
+  JEF has conducted Instrumentation Earthing Audits across more than 120 control rooms and instrumentation panel rooms, auditing over 9,500 panels, 32,053 junction boxes, and 2,04,963 field instruments and field assets.
+</p>
         </header>
         <div className="flex ContactUsAnimation flex-col self-center mt-14 max-w-full text-sm md:text-base leading-6 text-center text-red-700 w-[770px] max-md:mt-10">
           <p className="px-56 w-full max-md:px-5 max-md:max-w-full">
@@ -418,9 +382,12 @@ const IES = () => {
       </section> */}
 
       <section>
-        < InstrumentationStudiesPage />
+        < QuestionSection/>
       </section>
 
+<section>
+  <BenefitsSection />
+</section>
 
 
 
@@ -429,107 +396,65 @@ const IES = () => {
       </section> */}
 
 
-      <section className="hidden sm:block">
-        <div className={` h-full bg-slate-900`}>
-          <div
-            className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
-            {backgroundImage && (
-              <div className="absolute inset-0 w-full h-full ">
-                <img
-                  ref={imgRef}
-                  src={backgroundImage}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            )}
-            <section className="flex overflow-hidden flex-col text-base leading-6 text-center text-white uppercase w-full relative z-10">
-              <h2 className="self-center text-3xl font-semibold leading-none text-red-700 tracking-[4.53px] max-md:max-w-full max-md:text-4xl">
-                Our Services
-              </h2>
-              <div className="circle-slider flex flex-wrap justify-center mt-20 max-md:mt-10 w-full h-full">
-                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild'>
-                  {services.slice(0, 8).map((service, index) => (
-                    <ServiceItem
-                      key={index}
-                      text={service.text}
-                      path={service.path}
-                      image={service.image}
-                      ref={(el) => (serviceRefs.current[index] = el)}
-                      onMouseEnter={() => handleMouseEnter(index, service.image)}
-                      onMouseLeave={handleMouseLeave}
-                    />
-                  ))}
-                </div>
-                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-10'>
-                  {services.slice(8).map((service, index) => (
-                    <ServiceItem
-                      key={index + 8}
-                      text={service.text}
-                      path={service.path}
-                      image={service.image}
-                      ref={(el) => (serviceRefs.current[index + 8] = el)}
-                      onMouseEnter={() => handleMouseEnter(index + 8, service.image)}
-                      onMouseLeave={handleMouseLeave}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-          </div>
+     
+    <section className="hidden sm:block">
+  <div className={` h-full bg-slate-900`}>
+    <div className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
+      
+      {backgroundImage && (
+        <div className="absolute inset-0 w-full h-full ">
+          <img
+            ref={imgRef}
+            src={backgroundImage}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
-      </section>
+      )}
 
-      <section className="block sm:hidden">
-        <div className={` h-full bg-slate-900`}>
-          <div
-            className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
-            {backgroundImage && (
-              <div className="absolute inset-0 w-full h-full ">
-                <img
-                  ref={imgRef}
-                  src={backgroundImage}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            )}
-            <section className="flex overflow-hidden flex-col text-base leading-6 text-center text-white uppercase w-full relative z-10">
-              <h2 className="self-center text-3xl font-semibold leading-none text-red-700 tracking-[4.53px] max-md:max-w-full max-md:text-4xl">
-                Our Services
-              </h2>
-              <div className="flex circle-slider flex-wrap justify-center mt-20 max-md:mt-10 w-full h-full">
-                <div className='flex Y-axis-Service-anm items-center gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild'>
-                  {services2.slice(0, 7).map((service2, index) => (
-                    <ServiceItem2
-                      key={index}
-                      text={service2.text}
-                      path={service2.path}
-                      image={service2.image}
-                      ref={(el) => (service2Refs.current[index] = el)}
-                      onMouseEnter={() => handleMouseEnter(index, service2.image)}
-                      onMouseLeave={handleMouseLeave}
-                    />
-                  ))}
-                </div>
-                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-6'>
-                  {services2.slice(12, 14).map((service2, index) => (
-                    <ServiceItem2
-                      key={index}
-                      text={service2.text}
-                      path={service2.path}
-                      image={service2.image}
-                      ref={(el) => (service2Refs.current[index] = el)}
-                      onMouseEnter={() => handleMouseEnter(index, service2.image)}
-                      onMouseLeave={handleMouseLeave}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
+      <section className="flex overflow-hidden flex-col text-base leading-6 text-center text-white uppercase w-full relative z-10">
+        
+        <h2 className="self-center text-3xl font-semibold leading-none text-red-700 tracking-[4.53px] max-md:max-w-full max-md:text-4xl">
+          Our Services
+        </h2>
+
+        <div className="circle-slider flex flex-col items-center mt-20 max-md:mt-10 w-full h-full">
+
+          {/* 🔴 TOP ROW (3 items) */}
+          <div className="flex Y-axis-Service-anm gap-x-6 md:gap-x-10 lg:gap-x-16 circleChild mb-10">
+            {services.slice(0, 3).map((service, index) => (
+              <ServiceItem
+                key={index}
+                text={service.text}
+                path={service.path}
+                image={service.image}
+                ref={(el) => (serviceRefs.current[index] = el)}
+                onMouseEnter={() => handleMouseEnter(index, service.image)}
+                onMouseLeave={handleMouseLeave}
+              />
+            ))}
           </div>
+
+          {/* 🔴 BOTTOM ROW (2 items centered) */}
+          <div className="flex Y-axis-Service-anm gap-x-6 md:gap-x-10 lg:gap-x-16 justify-center">
+            {services.slice(3).map((service, index) => (
+              <ServiceItem
+                key={index + 3}
+                text={service.text}
+                path={service.path}
+                image={service.image}
+                ref={(el) => (serviceRefs.current[index + 3] = el)}
+                onMouseEnter={() => handleMouseEnter(index + 3, service.image)}
+                onMouseLeave={handleMouseLeave}
+              />
+            ))}
+          </div>
+
         </div>
       </section>
+    </div>
+  </div>
+</section>
 
 
 
@@ -988,173 +913,281 @@ function CarouselSection({ components }) {
 
 // ------------------------------------------------------------------------------------------------------------------------
 
-const standards = [
-  { id: 'IEEE1100', title: 'IEEE 1100', description: 'IEEE Recommended Practice for Powering and Grounding Electronic Equipment', isRed: true },
-  { id: 'IEEE1050', title: 'IEEE 1050', description: 'Guide for Instrumentation and Control Equipment grounding in Generating Stations', isRed: false },
-  { id: 'GP1265', title: 'GP 12-65', description: 'Guidance on Practice for Electromagnetic Compatibility', isRed: true },
-  { id: 'GP1225', title: 'GP 12-25', description: 'Guidance on Practice for Grounding', isRed: false },
-  { id: 'IEC6100052', title: 'IEC 61000-5-2', description: 'Electromagnetic Compatibility – Installation and Mitigation Guidelines – Grounding and Cabling', isRed: true },
-  { id: 'BS74302011', title: 'BS-7430:2011', description: 'Code of Practice for Protective Grounding of Electrical Installations', isRed: false },
-  { id: 'DEP33641033Gen', title: 'DEP 33.64. 10.33-Gen.', description: 'Electromagnetic Compatibility for Electrical and Electronics Systems', isRed: true },
-  { id: 'IEEE812012', title: 'IEEE 81-2012', description: 'IEEE guide for Measuring Soil Resistivity, Ground Impedance, Earth Surface Potentials of the Grounding System.', isRed: false },
-  { id: 'IEEE1422007', title: 'IEEE 142-2007', description: 'Grounding of Industrial and Commercial Power Systems', isRed: true },
-  { id: 'IEEE5192014', title: 'IEEE-519-2014', description: 'IEEE Recommended Practice and Requirements for Harmonic Control in Electrical Power Systems', isRed: false },
-  { id: 'GP1235', title: 'GP 12 - 35', description: 'Code of Practice for UPS and DC Power Supplies', isRed: true },
-  { id: 'GP1210', title: 'GP 12 - 10', description: 'Code of Practice for Switch-gear and Control gear', isRed: false },
-];
 
-const keyPoints = [
-  'Mix up between instrumentation and protective grounding system.',
-  'Grounding philosophy for is and nis systems.',
-  'Existing grounding scheme',
-  'Shields with high loop current',
-  'Electro magnetic interference on panels and field assets or instruments',
-  'Effective grounding of panels, junction boxes and field assets or instruments.',
-  'Grounding of cable armour\'s',
-  'Grounding unused cables',
-  'Interconnection with different grounding systems.',
-];
 
-const slides = [
+  
+
+
+const  QuestionSection= () =>{
+  const questionsData = [
   {
-    title: 'KEY CHECK POINTS WE FOCUS ON DURING OUR INSTRUMENTATION AUDITS AND STUDIES TO ENHANCE RELIABILITY OF YOUR OPERATIONS',
-    keyPoints: [
-      'Mix-up between instrumentation and protective grounding system.',
-      "Grounding philosophy for IS and NIS systems.",
-      'Existing grounding scheme',
-      'Shields with high loop current',
-      'Electromagnetic interference on panels and field assets or instruments',
-      'Grounding of cable armour’s',
-      'Grounding unused cables',
-      'Effective grounding of panels, junction boxes and field assets or instruments.',
-      'Interconnection with different grounding systems.'
-    ],
-  },
-  {
-    title: 'KEY CHECK POINTS ACHIEVED BY PERFORMING INSTRUMENTAION GROUNDING STUDIES',
-    keyPoints: [
-      'Reduces unwanted trips',
-      'Reduces plant shutdown',
-      'Improves EMC',
-      'Prevents malfunction',
-      'Enhances safety and reliability',
-      'Equipotential bonding',
-      'Effective instrumentation grounding and its compliance to latest international standards'
-    ],
-  },
-  // Add more slides as needed
-];
+    id: 1,
+    question: "WHAT IS AN INSTRUMENTATION EARTHING AUDIT?",
+    answer: `An Instrumentation Earthing Audit is a detailed, structured and end-to-end technical evaluation of the grounding architecture that supports instrumentation and control systems in industrial facilities. It traces the entire earthing path—from field instruments and cable shields, through junction boxes, marshalling cabinets, DCS panels, up to system cabinets, control room earth buses, and finally the below ground instrumentation and protective earthing systems which are interconnected to the plant earth grid—verifying equipotential bonding, noise control, and safety compliance at every node against globally accepted standards.
 
-function InstrumentationStudiesPage() {
+Aligned with IEEE 1050-2004, IEEE 1100-2005, and IEC 61000-5-2, the audit combines precision measurements—such as shield loop current, millivolt drop, continuity, EM field intensity, and power quality—with structured visual inspection. The outcome is not just compliance verification, but a diagnostic insight into hidden risks like circulating currents, EMI susceptibility, and unsafe grounding practices—translated into actionable findings directly referenced to international standards.`,
+  },
+
+  {
+    id: 2,
+    question: "WHAT ACTUALLY GOES WRONG",
+    answer: `The following 12 factors are identified as capable of interrupting the operation of instrumentation systems
+
+I. Surges, Spikes, and Glitches  
+II. Leakage Current  
+III. Circulating Current  
+IV. Differential Grid / Earth Potential  
+V. Incorrect Earthing Philosophy  
+VI. Incorrect Cabling Philosophy  
+VII. Compromised Common Earthing Point (CEP)  
+VIII. High Shield Current  
+IX. EMI and EMF  
+X. Looping of Excess Power Cables Inside Panels  
+XI. Unused and Unterminated Cables  
+XII. Power Quality Disturbances`,
+  },
+
+  {
+    id: 3,
+    question: "THE SCALE OF THE PROBLEM IN OPERATING PLANTS",
+    answer: `The challenge is compounded by the sheer scale of instrumentation infrastructure in a typical process plant or generating station. A medium-sized plant may have hundreds of panels, thousands of junction boxes, and tens of thousands of individual field instruments—each with its own earthing connections, cable shields, and bonding points. The grounding system is physically extensive, installed over years by multiple contractors, and subject to ongoing modifications and additions that incrementally degrade the original design intent.
+
+Errors accumulate silently.
+• A shield grounded at both ends in one junction box.  
+• A signal ground bar inadvertently connected to a PE bar during a panel modification.  
+• An instrument earth pit left isolated from the plant grid.
+
+None of these individually cause an immediate, visible failure. Together, they create the conditions for the intermittent, hard-to-diagnose problems that operations teams experience as unexplained trips and nuisance alarms — and which plant engineering teams are unable to resolve through standard troubleshooting.`,
+  },
+
+  {
+    id: 4,
+    question: "WHY STANDARD ELECTRICAL TESTING DOES NOT SOLVE THIS",
+    answer: `Routine electrical testing — insulation resistance, continuity, earth pit resistance — is designed for the protective earthing system. It does not examine the signal reference ground, shield termination practices, shield loop current, earth bar segregation, or the global earthing architecture. An installation that passes all routine electrical tests can still have an instrumentation earthing system that is comprehensively non-compliant with IEEE 1050-2004, IEC 61000-5-2, and IEEE 1100-2005 — and that is actively causing operational problems.
+
+This is the gap that a specialist Instrumentation Earthing Audit addresses.`,
+  },
+
+  {
+    id: 5,
+    question: "JEF APPROACH",
+    answer: `JEF's Instrumentation Earthing Audit covers 15 structured tests and inspections applied across panels, junction boxes, field instruments. The scope escalates logically: where shield loop current measurements at the panel level indicate a ground loop condition, the audit is extended to junction boxes and field assets to locate the source. It doesn't end with measurements alone, we rectify the anomalies identified and also perform measurements to cross verify the quality of rectification not just by visual inspection but also check whether the measured values after post rectification are within the acceptable limits prescribed in standards there by ensuring a fool proof system.
+
+The approach involves 3 phases  
+Phase -1 – Audit and Identification of gaps / anomalies  
+Phase-2 – Rectification of anomalies  
+Phase -3 – Retesting after rectification.`,
+  },
+
+  {
+    id: 6,
+    question: "DELIVERABLES",
+    answer: `• Detailed engineering report with all measurement results, test locations, and test conditions.  
+• Site photographs documenting the installation condition and all visible deficiencies identified.  
+• List of all identified anomalies and defects, with specific locations and BOM required for correction.  
+• Detailed report and site photographs post re-audit.`,
+  },
+
+  {
+    id: 7,
+    question: "JEF CAPABILITY",
+    answer: `• JEF has conducted Instrumentation Earthing Audits across more than 120 control rooms and instrumentation panel rooms, auditing over 9,500 panels, 32,053 junction boxes, and 2,04,963 field instruments and field assets.  
+• Our patented Smart Digitization process delivers consistent, structured, and auditable reports at scale — enabling systematic tracking of findings across large, multi-room installations and clear prioritisation of corrective actions.`,
+  },
+];
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <main className="flex overflow-hidden flex-col items-center bg-stone-900 pt-[10%] max-md:pt-24">
-      <h1 className="text-xl lg:text-2xl font-bold text-center text-red-700 uppercase lg:leading-[3.0625rem] tracking-[0.28313rem] w-[72.5rem] max-md:max-w-full">
-        INTERNATIONAL STANDARDS THAT WE ADHERE TO FOR PERFORMING INSTRUMENTATION EARTHING STUDIES
-      </h1>
-      <StandardList standards={standards} />
-      <section className="flex overflow-hidden flex-col items-center self-stretch py-24 mt-36 w-full bg-stone-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-        <div className="flex flex-wrap gap-10 w-full max-w-[100.25rem] max-md:max-w-full">
-          <KeyCheckPoints slides={slides} />
+    <section className="flex w-full bg-[#1B1818] text-white py-20 px-10 max-md:flex-col">
+
+      {/* LEFT SIDE */}
+      <div className="w-[30%] max-md:w-full pl-6">
+       <div className="border-l-2 border-red-600 pl-3">
+         <h2 className="text-3xl tracking-widest text-gray-400 uppercase mb-6">
+          ABOUT
+        </h2>
+
+        <h3 className="text-3xl uppercase mb-10 leading-8 ">
+          Instrumentation <br /> Systems
+        </h3>
+       </div>
+
+        <div className="flex flex-col gap-4">
+          {questionsData.map((item, index) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveIndex(index)}
+              className={`text-left text-sm tracking-wide transition-all duration-300 ${
+                activeIndex === index
+                  ? "text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+            >
+              {item.question}
+            </button>
+          ))}
         </div>
-      </section>
-    </main>
-  );
-}
+      </div>
 
+      {/* RIGHT SIDE */}
+      <div className="w-[70%] max-md:w-full pl-16 max-md:pl-0 mt-10 max-md:mt-10">
 
+        <div className="text-red-600 text-5xl font-bold mb-6">JEF</div>
 
-function StandardList({ standards }) {
-  return (
-    <ul className="flex flex-col p-4 mt-20 mx-8 w-full text-white uppercase max-w-[80.4375rem] tracking-[0.28313rem] max-md:mt-10 max-md:max-w-full">
-      {standards.map((standard) => (
-        <li key={standard.id} className="card-slider Y-axis-card-anm flex flex-wrap gap-1 items-center mt-1 w-full font-light max-md:max-w-full">
-          <div className={`grow shrink gap-2.5 self-stretch px-2.5 py-5 my-auto items-center  text-lg text-center ${standard.isRed ? 'bg-red-700' : 'border border-gray-500 border-solid'} min-h-[6.25rem] w-[9.3125rem]`}>
-            {standard.title}
-          </div>
-          <div className={`grow shrink gap-3 self-stretch p-2.5 my-auto text-lg leading-10 ${standard.isRed ? 'bg-red-700' : 'border border-gray-500 border-solid'} min-h-[6.25rem] min-w-[15rem] w-[66.25rem] max-md:max-w-full`}>
-            {standard.description}
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-
-
-
-
-
-function KeyCheckPoints({ slides }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const midpoint = Math.ceil(slides[0].keyPoints.length / 2);
-
-  return (
-    <div className="flex-auto max-md:max-w-full">
-      <div className="flex lg:w-[95vw] 2xl:w-full gap-5 items-center justify-center">
-        {/* Static left-side content */}
-
-        {/* Sliding right-side content */}
-        <div className="slider-container Y-axis-Slider-anm slider-anm">
-          <div
-            className="slides-wrapper"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
           >
-            {slides.map((slide, index) => (
-              <div key={index} className="slide">
-                <h3 className="grow text-2xl text-red-700 uppercase tracking-[0.28313rem] max-md:mt-10 max-md:max-w-full">
-                  {slide.title}
-                </h3>
-                <ul className="mt-8 w-full max-w-[75.375rem] max-md:mr-2.5 max-md:max-w-full">
-                  <div className="flex gap-5 max-md:flex-col">
-                    <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                      {slide.keyPoints.slice(0, midpoint).map((point, idx) => (
-                        <li key={idx} className="text-base 2xl:text-lg text-white mt-5 max-md:max-w-full">
-                          {idx + 1}. {point}
-                        </li>
-                      ))}
-                    </div>
-                    <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                      {slide.keyPoints.slice(midpoint).map((point, idx) => (
-                        <li key={idx + midpoint} className="text-base 2xl:text-lg text-white mt-5 max-md:max-w-full">
-                          {idx + midpoint + 1}. {point}
-                        </li>
-                      ))}
-                    </div>
-                  </div>
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+            <h2 className="text-xl tracking-[3px] uppercase text-red-600 mb-6">
+              {questionsData[activeIndex].question}
+            </h2>
 
-        {/* Next button */}
-        <button
-          onClick={handleNext}
-          className={`flex self-start justify-start items-start min-h-[3.75rem] transition-transform duration-500 ${currentIndex === 1 ? "rotate-180" : "rotate-0"
-            }`}
-          aria-label="Next"
-        >
-          <div className="flex overflow-hidden flex-1 shrink justify-center items-center self-stretch px-5 my-auto bg-white border border-solid border-zinc-900 border-opacity-10 h-[3.75rem] min-h-[3.75rem] rounded-[3.75rem] w-[3.75rem]">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5bcda9453f93d58b48e207cfd8d3b19c69b7c4768fd9e522cbaaea6950c4e4b3?placeholderIfAbsent=true&apiKey=d3bbb7c7de3c4da4bc28ced0d6a3e488"
-              className="object-contain flex-1 w-6 aspect-square"
-              alt="Next slide"
-            />
-          </div>
-        </button>
+            <p className="text-gray-300 leading-7 whitespace-pre-line">
+              {questionsData[activeIndex].answer}
+            </p>
+          </motion.div>
+        </AnimatePresence>
 
       </div>
-    </div>
+    </section>
   );
 }
 
+
+
+
+const ITEMS_PER_PAGE = 3;
+
+const BenefitsSection = () => {
+  const [page, setPage] = useState(0);
+
+   const benefitsData = [
+  {
+    id: "01",
+    title: "Reduces Electrical Noise and Signal Disturbance",
+    description:
+      "By identifying and eliminating ground loops, circulating currents, and shield termination errors that corrupt 4–20 mA and digital signals.",
+  },
+  {
+    id: "02",
+    title: "Prevents Malfunctions, False Alarms, and Nuisance Trips",
+    description:
+      "By addressing the root causes that standard electrical testing does not detect.",
+  },
+  {
+    id: "03",
+    title: "Improves System Reliability and Reduces Downtime",
+    description:
+      "By eliminating the intermittent, hard-to-diagnose failure modes that recur when earthing problems are left uncorrected.",
+  },
+  {
+    id: "04",
+    title: "Enhances Personnel and Equipment Safety",
+    description:
+      "By identifying isolated grounding elements and earth bar mix-ups that represent genuine safety hazards under fault conditions.",
+  },
+  {
+    id: "05",
+    title: "Improves Process Stability and Production Efficiency",
+    description:
+      "By restoring signal integrity and eliminating the operational disruptions caused by instrumentation system noise.",
+  },
+  {
+    id: "06",
+    title: "Documented Compliance with International Standards",
+    description:
+      "Audit reports referenced to IEEE 1050-2004, IEEE 1100-2005, IEC 61000-5-2, and related standards, supporting regulatory, insurance, and operator requirements.",
+  },
+];
+
+  const totalPages = Math.ceil(benefitsData.length / ITEMS_PER_PAGE);
+
+  const nextPage = () => {
+    if (page < totalPages - 1) setPage(page + 1);
+  };
+
+  const prevPage = () => {
+    if (page > 0) setPage(page - 1);
+  };
+
+  const currentItems = benefitsData.slice(
+    page * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+  );
+
+ 
+
+  return (
+    <section className="bg-black text-white px-16 py-20 max-md:px-5">
+
+      {/* Header */}
+      <div className="flex justify-between items-center mb-16">
+        <h2 className="text-red-600 uppercase text-3xl tracking-[3px]  max-w-[900px] font-semibold">
+          Benefits from JEF Instrumentation Earthing Audit
+        </h2>
+
+        {/* Arrows */}
+        <div className="flex gap-4">
+          <button
+            onClick={prevPage}
+            className="w-10 h-10 border border-white rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+          >
+            ←
+          </button>
+          <button
+            onClick={nextPage}
+            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:opacity-80 transition"
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      {/* Content */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={page}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-3 gap-16 max-md:grid-cols-1"
+        >
+          {currentItems.map((item, index) => (
+            <div key={index} className="relative">
+
+              {/* Divider line */}
+              {index !== 0 && (
+                <div className="absolute left-[-30px] top-0 h-full border-l border-gray-700" />
+              )}
+
+              {/* Number */}
+              <div className={`text-5xl text-gray-500 mb-4 font-montserrat font-bold`}>
+                {item.id}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-red-600 text-lg font-medium mb-4">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 text-sm leading-6">
+                {item.description}
+              </p>
+
+            </div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+
+    </section>
+  );
+}
 
 
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link'
+import ContactUs from '@/components/ContactUs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,21 +105,56 @@ const AboutUsContent = () => {
     const visionData = [
         {
             icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e16ee975eb679a5915e4c081858a20a90389fd8b30454bd57483da22afade137?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-            title: "Mission",
-            description: "Deliver Value added, technically superior and cost-optimum solutions to enhance the safety & reliability of Electrical systems by combining knowledge, experience and technology.",
+            title: "PRODUCTS",
+            description: " Type-tested lightning protection components and systems (to IEC 62305:2024, with CLPS components tested to 200 kA on the 10/350 µs waveform — double the IEC standard requirement), earthing and grounding system solutions, surge protective devices, and lightning risk assessment tools including the automated JEF Shield platform.",
+        },
+          {
+            icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/046a00e721b213a29322e89fd6ebaa8d2b511514f4b267d8a196e97e597db69f?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+        title: "AUDIT SERVICES",
+            description: " Electrical and Fire Safety Audit powered by Sameeksha® (the world’s first automated safety audit tool, developed and patented by JEF); Earthing Health Assessment of live installations; and Instrumentation Earthing Audit for I&C systems in process plants and generating stations."
         },
         {
             icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2137e57fab69bcc7f6fe80e5f7e438b0cdfa992da4b7bf36e2da2159fb80627e?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-            title: "vision",
-            description: "Make more customers across the world benefit from our expertise and achieve 40% annual growth rate."
-        },
-        {
-            icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/046a00e721b213a29322e89fd6ebaa8d2b511514f4b267d8a196e97e597db69f?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-            title: "ASSURANCE",
-            description: "We strive to consistently deliver projects on time, exceeding the expectations of stakeholders in terms of quality and completeness while following the mandated systems and procedures."
+        title: "CONSULTING SERVICES",
+            description: "  Power System Studies (load flow, short circuit, motor starting, harmonics, transient stability, protection coordination, arc flash, insulation coordination) using ETAP, PSCAD/EMTDC, PSS/E, DIgSILENT, SKM, and DSA Tools; and EMI/EMC Studies including AC interference analysis for pipelines."
         }
+      
     ];
+const technologyData = [
+  {
+    title: "SAMEEKSHA®",
+    description:
+      "world’s first automated safety audit tool. 6,500+ reports, 630,000+ data points, 230,000+ images, zero data mix-up. Patented.",
+  },
+  {
+    title: "JEF SHIELD",
+    description:
+      "Automated LPS risk assessment and design to IEC 62305-2. Complete report, drawings, and BOM in under 90 seconds.",
+  },
+  {
+    title: "JEF E-BUILD",
+    description:
+      "Real-time LPS installation monitoring and remote certification.",
+  },
+];
 
+const locationData = [
+  {
+    title: "Bengaluru, India (Global HQ)",
+    description:
+      "jeftechno.com — full product, audit, and consulting capability across India and internationally.",
+  },
+  {
+    title: "Abu Dhabi, UAE (GCC Hub)",
+    description:
+      "jefuae.com — power system studies, instrumentation earthing, EMI/EMC, and earthing studies, specialising in oil and gas.",
+  },
+  {
+    title: "USA",
+    description:
+      "North American presence, US patent portfolio, and engagement with US engineering standards and clients.",
+  },
+];
 
     return (
         <>
@@ -132,7 +168,7 @@ const AboutUsContent = () => {
                     />
                     <section className="flex relative px-4 inset-y-3/4 lg:-mt-[2%] 2xl:mt-0 lg:inset-x-24 flex-col mt-4 w-full max-w-[1310px] max-md:mb-2.5 max-md:max-w-full">
                         <h1 className="md:text-5xl Y-axis-text-Title text-4xl font-bold tracking-wider text-white max-md:max-w-full max-md:text-4xl">
-                            THINK ELECTRICAL, THINK JEF
+                            JEF GROUP OF COMPANIES
                         </h1>
                         <div className="flex gap-6 items-center self-start mt-8 text-lg uppercase text-neutral-900  max-md:mt-10">
                             <Link href={'/get-in-touch'}>
@@ -152,7 +188,7 @@ const AboutUsContent = () => {
 
 
 
-            <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 bg-zinc-800 max-md:px-5">
+            <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 bg-[#312D2D] max-md:px-5">
                 <div className="flex flex-col w-full max-w-[1380px] max-md:max-w-full">
                     <header className="flex Y-axis-text flex-col self-center max-w-full text-center text-white ">
                         <h1 className="flex justify-center items-center px-48 w-full text-3xl font-normal leading-none uppercase tracking-[3.36px] max-md:px-5 max-md:max-w-full ">
@@ -160,19 +196,32 @@ const AboutUsContent = () => {
                                 Who we are ?
                             </span>
                         </h1>
-                        <p className="pb-px mt-8 w-full text-lg font-light  max-md:max-w-full">
-                            JEF is a widely renowned technology-enabled company, focused on solving the
-                            toughest <br className='hidden md:block' /> problems in the electrical engineering space with a comprehensive and
-                            innovative set of <br className='hidden md:block' /> services and solutions.
-                        </p>
-                        <p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
-                            Founded in 1994, our relentless commitment to innovation, quality, and <br className='hidden md:block' />
-                            client satisfaction has propelled us to become a trusted partner across 28 countries.
-                        </p>
+                      <p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
+  JEF is a specialist electrical engineering company with an uncompromising focus on the safety and reliability of electrical systems. Founded in Bengaluru in 1994, we have built our global presence the hard way — one technically demanding project at a time, in industries and environments where the standard of engineering is determined by the consequences of getting it wrong.
+</p>
+
+<p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
+  Three decades of this work, across 30 countries and 10k customers, have produced something that cannot be replicated quickly: a depth of methodology, a body of proprietary technology, and a team capable of operating at the frontier of what electrical engineering analysis and assessment can deliver. Our 9 granted patents — across India, the United States, and the European Union — reflect the same conviction that has guided the company since 1994: that the right response to a gap in what the industry delivers is to build something better.
+</p>
+
+<p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
+  <span className="font-bold">
+    30+ years. 30 countries. 10k customers. 9 granted patents. The record of an organization that has consistently delivered where others have not.
+  </span>
+</p>
                     </header>
                     <div className="flex flex-col items-center px-16 mt-20 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                         <div className="flex flex-col justify-center items-center w-full max-w-[1240px] max-md:max-w-full">
+                             <h1 className="flex justify-center items-center px-48 w-full text-3xl font-normal leading-none uppercase tracking-[3.36px] max-md:px-5 max-md:max-w-full mb-5">
+                            <span className="text-red-600 self-stretch pb-px my-auto min-w-[240px] max-md:text-4xl">
+                                What we Do
+                            </span>
+                        </h1>
+                            <h2 className='mb-10 text-white text-lg font-light max-md:max-w-full'>
+                                JEF's work spans three disciplines — Products,Audit Services and Consulting — United by a single purpose.
+                            </h2>
                             <div className="flex flex-wrap flex-1 justify-center mx-auto size-full max-md:px-5">
+                                
                                 {visionData.map((card, index) => (
                                     <article key={index} className="flex  Y-axis-card-anm flex-col grow shrink justify-center h-full pr-px max-w-[311px] min-w-[240px] w-[249px]">
                                         <div className="flex card-slider flex-col px-5 py-14 w-full hover:bg-stone-900 hover:border-opacity-80 border border-white border-opacity-10 lg:h-[530px] max-w-[310px] max-md:pl-5">
@@ -186,7 +235,7 @@ const AboutUsContent = () => {
                                                 </div>
                                             </div>
                                             <h2 className="flex flex-col pb-16 text-sm tracking-widest leading-loose text-center text-white uppercase whitespace-nowrap min-h-[88px]">
-                                                <div className="w-full max-md:px-5">{card.title}</div>
+                                                <div className="w-full max-md:px-5 font-bold">{card.title}</div>
                                             </h2>
                                             <p className="flex z-10 flex-col pb-16 text-sm 2xl:text-base font-thin leading-6 text-center text-white">
                                                 <span className="pr-2 pl-2 w-full">{card.description}</span>
@@ -220,30 +269,59 @@ const AboutUsContent = () => {
             </section>
 
 
+
+
             {/* Our Approach */}
 
-            <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 text-center bg-zinc-800 max-md:px-5">
-                <div className="flex flex-col max-w-full w-[1115px]">
-                    <h2 className="flex flex-wrap gap-24 justify-center items-start self-center max-w-full text-3xl font-bold leading-none text-red-700 uppercase tracking-[3.36px] w-[714px] ">
-                        <span className="pb-px Y-axis-text min-w-[240px] max-md:max-w-full ">
-                            Our Approach
-                        </span>
-                    </h2>
-                    <p className="mt-16 Y-axis-text text-lg md:text-xl font-light text-white max-md:mt-10 max-md:max-w-full">
-                        We provide Innovative Solutions that are{" "}
-                        <span className="font-extrabold">
-                            Technically Superior, Cost-optimum and
-                        </span>{" "}
-                        <br />
-                        <span className="font-extrabold">Practically Implementable</span>.
-                    </p>
-                </div>
-            </section>
+ 
+
+          <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 text-center bg-[#312D2D] max-md:px-5">
+  <div className="flex flex-col max-w-full w-[1115px]">
+
+    {/* Heading */}
+    <h2 className="text-3xl font-bold text-red-600 uppercase tracking-[3.36px]">
+      TECHNOLOGY AND PATENTS
+    </h2>
+
+    {/* Subtext */}
+    <p className="mt-6 text-sm md:text-base font-light text-gray-300 max-w-[700px] mx-auto">
+      <span className="font-bold text-white">
+        9 granted patents — India, United States, European Union.
+      </span>{" "}
+      JEF's proprietary tools are not incremental improvements to existing approaches. They are purpose-built responses to specific gaps in what the industry was delivering.
+    </p>
+
+    {/* Cards */}
+    <div className="flex flex-wrap justify-center mx-auto mt-16 w-full max-md:px-5">
+      {technologyData.map((card, index) => (
+        <article
+          key={index}
+          className="flex flex-col justify-center max-w-[320px]"
+        >
+          <div className="flex flex-col px-6 py-14 w-full h-full border border-white border-opacity-10 hover:bg-[#2a2626] transition-all duration-300">
+
+            {/* Title */}
+            <h3 className="text-sm tracking-widest text-center text-red-500 uppercase font-bold mb-6">
+              {card.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-sm 2xl:text-base font-light leading-6 text-center text-gray-300">
+              {card.description}
+            </p>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
 
 
 
 
-            {/* Brand History */}
+            {/* Where we are */}
 
             <section className="flex overflow-hidden flex-col justify-center items-center px-4 sm:px-8 md:px-16 py-12 sm:py-16 md:py-24 bg-neutral-100">
                 <div className="w-full max-w-[80rem]">
@@ -253,14 +331,23 @@ const AboutUsContent = () => {
                                 <div className="flex flex-col justify-center p-2.5 w-full text-3xl sm:text-4xl font-semibold leading-none text-red-700 tracking-[0.28rem]">
                                     <div className="flex flex-col w-full h-[4.5rem]">
                                         <div className="flex relative flex-col w-full">
-                                            <h2 className="pb-px Y-axis-text w-full">Brand History</h2>
+                                            <h2 className="pb-px Y-axis-text w-full text-5xl">WHERE WE ARE</h2>
                                             <div className="flex absolute inset-x-0 z-0 max-w-full bottom-[-7.6875rem] min-h-[5.8125rem] w-full md:w-[33.25rem]" />
                                         </div>
                                     </div>
                                 </div>
-                                <p className="mt-6 Y-axis-text sm:mt-8 md:mt-11 text-lg md:text-xl font-extralight leading-7 sm:leading-8 text-black">
-                                    From three decades, JEF as a brand has been synonymous with quality, reliability and trustworthiness in our areas of operation. Since our inception in 1994, JEF has continuously developed new products, services and expanded to new geographies to become the front-runner in Electrical Engineering space. Through this wider network, JEF brand has now been established as a global player in our area of operation with many prestigious references in 28 countries.
-                                </p>
+                                <div className="flex flex-col gap-10 mt-10">
+  {locationData.map((item, index) => (
+    <div key={index}>
+      <h3 className="text-lg md:text-xl font-light text-gray-400">
+        <span className="text-red-600 font-semibold">
+          {item.title}
+        </span>{" "}
+        — {item.description}
+      </h3>
+    </div>
+  ))}
+</div>
                             </div>
                         </div>
                         <div className="flex flex-col Img-slider mt-6 md:mt-0 md:ml-5 w-full md:w-1/2">
@@ -297,7 +384,7 @@ const AboutUsContent = () => {
                                     SAFETY AT SCALE
                                 </h1>
                                 <p className="mt-5 Y-axis-text w-full text-lg font-light leading-6 text-white max-md:max-w-full min-w-[90%]">
-                                    Over the last couple of decades, our clients have been able to assure the long-term <br className='hidden md:block' /> safety of their assets & people across geographies.
+                                    Over the last couple of decades, our clients have been able to assure the long-term <br className='hidden md:block' /> safety of their manpower and business.
                                 </p>
                             </div>
                         </div>
@@ -354,53 +441,51 @@ const Overview = () => {
         );
     }, []);
 
+    const statsData = [
+  ["30+ Years", "Founded 1994", "10k Customers", "90% Retention Rate"],
+  ["30 Countries", "Asia, Middle East, Africa, Europe", "9 Patents", "India, US & EU"],
+  ["500+", "Earthing assessments", "6,500+", "Safety audit reports"],
+  ["120+", "Control rooms audited", "650+", "Earth grid simulations"],
+];
+
 
     return (
         <div className="flex flex-col justify-center items-center p-20 bg-stone-900 max-md:px-5">
             <div className="flex flex-col w-full max-w-[70%] max-md:max-w-full">
                 <div className="flex justify-center items-center self-center px-72 max-w-full text-3xl  font-semibold leading-none text-center text-white uppercase whitespace-nowrap tracking-[4.53px] w-[960px] max-md:px-5 ">
                     <div className="self-stretch Y-axis-card-anm my-auto min-w-[240px] ">
-                        Overview
+                        By the numbers
                     </div>
                 </div>
-                <div className="mt-20 max-md:mt-10 max-md:max-w-full">
-                    <div className="flex Y-axis-card-anm max-md:flex-col">
-                        <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                            <div className="flex card-slider-Overview hover:bg-stone-800 hover:border-opacity-80 overflow-hidden flex-col grow items-start px-10 pt-12 pb-40 text-xl font-light leading-9 text-white border border-white border-opacity-20 max-md:px-5 max-md:pb-24">
-                                <div className="font-medium leading-10 text-center text-red-700 uppercase tracking-[4.53px] 2xl:h-24">
-                                    From India to 28 countries
-                                </div>
-                                <div className="mt-16 text-lg max-md:mt-10">
-                                    Strong International Presence.
-                                </div>
-                                <div className="mt-3 text-lg">
-                                    Prestigious Projects in many countries.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex  flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                            <div className="flex card-slider-Overview hover:bg-stone-800 hover:border-opacity-80 overflow-hidden flex-col grow items-start px-10 pt-12 pb-40 text-xl font-light leading-9 text-white border border-white border-opacity-20 max-md:px-5 max-md:pb-24">
-                                <div className="font-medium leading-10 text-center text-red-700 uppercase tracking-[4.53px] 2xl:h-24">
-                                    3000+ Global Customers
-                                </div>
-                                <div className="mt-16 font-light text-lg leading-9 text-white max-md:mt-10">
-                                    90% customer retention rate
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                            <div className="flex card-slider-Overview hover:bg-stone-800 hover:border-opacity-80 overflow-hidden flex-col grow items-start px-10 pt-12 pb-40 text-xl font-light leading-9 text-white border border-white border-opacity-20 max-md:px-5 max-md:pb-24">
-                                <div className="font-medium leading-10 text-center text-red-700 uppercase tracking-[4.53px] 2xl:h-[100px]">
-                                    30 Years of Industry Experience
-                                </div>
-                                <div className="mt-16 text-lg max-md:mt-10">
-                                    Experience across geographies.
-                                </div>
-                                <div className="mt-3 text-lg">Serving many industries segments</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+         <div className="mt-20 max-md:mt-10 max-md:max-w-full">
+  <div className="w-full max-w-[1100px] mx-auto border border-white border-opacity-20">
+
+    {statsData.map((row, rowIndex) => (
+      <div
+        key={rowIndex}
+        className={`grid grid-cols-4 ${
+          rowIndex !== statsData.length - 1
+            ? "border-b border-white border-opacity-20"
+            : ""
+        }`}
+      >
+        {row.map((cell, colIndex) => (
+          <div
+            key={colIndex}
+            className={`px-6 py-10 text-center text-white text-lg font-light ${
+              colIndex !== row.length - 1
+                ? "border-r border-white border-opacity-20"
+                : ""
+            }`}
+          >
+            {cell}
+          </div>
+        ))}
+      </div>
+    ))}
+
+  </div>
+</div>
             </div>
         </div>
     );
@@ -424,13 +509,13 @@ function LearningDevelopment() {
                 <div className="flex flex-col max-w-full w-[60rem]">
                     <div className="flex justify-center items-center w-full max-md:px-5 max-md:max-w-full">
                         <h1 className="self-stretch my-auto min-w-[15rem]">
-                            KEY INITIATIVES
+                            Learning and Development
                         </h1>
                     </div>
                 </div>
             </header>
             <p className="mt-6 text-base font-light leading-loose text-white max-md:max-w-full">
-                that help us exceed our customer’s delivery expectations in terms of Quality and Speed.
+                This initiative will help us exceed our customer’s delivery expectations in terms of Quality and Speed.
             </p>
 
             {/* Image and Button Section */}
@@ -476,6 +561,9 @@ function LearningDevelopment() {
                         />
                     </button>
                 </div>
+            </div>
+            <div className='mt-20 w-full'>
+                <ContactUs/>
             </div>
         </main>
     );
@@ -742,19 +830,17 @@ function ExcellenceinElectricalEngineering() {
         <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 w-full bg-neutral-100 max-md:px-5 max-md:max-w-full">
             <div className="flex flex-col items-center w-full max-w-[1275px] max-md:max-w-full">
                 <header className="flex flex-col max-w-full text-center text-zinc-900 w-full">
-                    <h1 className="flex justify-center items-center px-36 w-full text-3xl  font-bold leading-none uppercase tracking-[4.53px] max-md:px-5 max-md:max-w-full ">
+                    <h1 className="flex justify-center items-center px-36 w-full text-5xl  font-bold leading-none uppercase tracking-[4.53px] max-md:px-5 max-md:max-w-full ">
                         <span className="self-stretch Y-axis-text pb-px my-auto min-w-[240px] max-md:max-w-full">
-                            Excellence in Electrical
-                            Engineering
+                        AREAS OF EXPERTISE
                         </span>
                     </h1>
-                    <p className="pb-px Y-axis-text mt-16 w-full text-lg  font-light max-md:max-w-full">
-                        We provide the below mentioned solutions for customers across Transmission &amp;
-                        Distribution Utilities,<br /> Oil & Gas Infrastructure and many other industry segments. <br /><span className='font-medium'> Earthing/Grounding Studies, Lightning Protection Studies, Power System Studies, Power Quality Studies, Instrumentation Earthing, EMI/EMC Studies and Root Cause Analysis.</span>
-                    </p>
+                   <p className="pb-px Y-axis-text mt-16 w-full text-lg font-light max-md:max-w-full">
+  We provide the below-mentioned solutions for Transmission & Distribution Utilities, Oil & Gas, Infrastructure, and such other customers. Earthing/Grounding Studies, Lightning Protection Studies, Power System Studies, Power Quality Studies, Instrumentation Earthing
+</p>
                 </header>
                 <div className="items-center mt-20 max-w-full  max-md:mt-10">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 justify-center">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 justify-center font-bold">
                         {sectors.map((sector) => (
                             <SectorIcon key={sector.name} {...sector} />
                         ))}

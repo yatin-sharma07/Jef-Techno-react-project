@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const menuItems = [
     { label: 'About', hasDropdown: true },
-    { label: 'Our Solutions', hasDropdown: true },
-    { label: 'Industries', hasDropdown: true },
-    { label: 'Blogs', hasDropdown: false, path: '/blog' },
+    { label: 'Our Business', hasDropdown: true },
+    { label: 'Our Industries', hasDropdown: true },
+    { label: 'Our Blogs', hasDropdown: false, path: '/blog' },
 ];
 
 const Navbar = () => {
@@ -277,15 +277,15 @@ const Navbar = () => {
                     <AboutSection />
                 </div>
             )}
-            {activeSection === 'Our Solutions' && (
+            {activeSection === 'Our Business' && (
                 <div
-                    onMouseEnter={() => handleMenuHover('Our Solutions')}
+                    onMouseEnter={() => handleMenuHover('Our Business')}
                     onMouseLeave={handleMouseLeave}
                 >
                     <ServicesComponent />
                 </div>
             )}
-            {activeSection === 'Industries' && (
+            {activeSection === 'Our Industries' && (
                 <div
                     onMouseEnter={() => handleMenuHover('Industries')}
                     onMouseLeave={handleMouseLeave}
@@ -318,8 +318,8 @@ const Navbar = () => {
 
 const navigationItems = [
     { number: "01", title: "About JEF", path: "/about-us" },
-    { number: "02", title: "Our Client", path: "/leadership-team" },  // Add a path for the leadership team
-    { number: "03", title: "jef leadership" },
+    { number: "02", title: "jef leadership Team ", path: "/leadership-team" },  // Add a path for the leadership team
+    { number: "03", title: "Our Clients" },
     { number: "04", title: "employee login" }
 ];
 
@@ -436,88 +436,74 @@ const ServiceItem2 = ({ icon, text, path, isVisible }) => (
 function ServicesComponent() {
     const [isHovered, setIsHovered] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
+    const [isHovered3, setIsHovered3] = useState(false);
 
-    const services = [
-        {
-            icon: '/es-nav-logo.png',
-            text: 'Earthing studies',
-            path: '/earthing-studies',
-        },
-        {
-            icon: '/lps-nav-logo.png',
-            text: 'Lightning protection studies',
-            path: '/lightning-protection-studies',
-        },
-        {
-            icon: '/pss-nav-logo.png',
-            text: 'Power system studies',
-            path: '/power-system-studies',
-        },
-        {
-            icon: '/pqs-nav-logo.png',
-            text: 'Power quality studies',
-            path: '/power-quality-studies',
-        },
-        {
-            icon: '/ie-logo.png',
-            text: 'Instrumentation earthing studies',
-            path: '/instrumentation-earthing-studies',
-        },
-        {
-            icon: '/emi-emc-nav.png',
-            text: 'EMI EMC & AC INTERFERENCE STUDIES',
-            path: '/emi-emc',
-        },
-        {
-            icon: '/rc-logo.png',
-            text: 'Root Cause Analysis',
-            path: '/root-cause-analysis',
-        },
-    ];
+   const services = [
+  {
+    icon: '/es-nav-logo.png',
+    text: 'EARTHING STUDIES',
+    path: '/earthing-studies',
+  },
+  {
+    icon: '/lps-nav-logo.png',
+    text: 'LIGHTNING PROTECTION STUDIES',
+    path: '/lightning-protection-studies',
+  },
+  {
+    icon: '/solution-nav5.png', 
+    text: 'ESE',
+    path: '/ese-lightning-protection',
+  },
+  {
+    icon: '/solution-nav2.png',
+    text: 'DESIGN SERVICES',
+    path: '/earthing-design',
+  },
+];
 
-    const services2 = [
-        {
-            icon: '/solution-nav1.png',
-            text: 'Earthing System',
-            path: '/earthing-system',
-        },
-        {
-            icon: '/solution-nav2.png',
-            text: 'Earthing Design',
-            path: '/earthing-design',
-        },
-        {
-            icon: '/solution-nav3.png',
-            text: 'Grounding Solutions',
-            path: '/grounding-solutions',
-        },
-        {
-            icon: '/solution-nav4.png',
-            text: 'Lightning Protection System',
-            path: '/lightning-protection-system',
-        },
-        {
-            icon: '/solution-nav5.png',
-            text: 'ESE Lightning Protection',
-            path: '/ese-lightning-protection',
-        },
-        {
-            icon: '/solution-nav6.png',
-            text: 'CLPS Products',
-            path: '/clps-products',
-        },
-        {
-            icon: '/solution-nav6.png',
-            text: 'CDI Counter',
-            path: '/cdi-counter',
-        },
-        {
-            icon: '/solution-nav6.png',
-            text: 'Lightning Protection Design',
-            path: '/lightning-protection-design',
-        },
-    ];
-
+  const services2 = [
+  {
+    icon: '/es-nav-logo.png',
+    text: 'ESA',
+    path: '/earthing-studies',
+  },
+  {
+    icon: '/es-nav-logo.png',
+    text: 'EARTHING AUDIT STUDIES',
+    path: '/earthing-studies',
+  },
+  {
+    icon: '/ie-logo.png',
+    text: 'INSTRUMENTATION EARTHING',
+    path: '/instrumentation-earthing-studies',
+  },
+  {
+    icon: '/pss-nav-logo.png',
+    text: 'POWER STUDIES',
+    path: '/power-system-studies',
+  },
+  {
+    icon: '/lps-nav-logo.png',
+    text: 'LPS STUDIES',
+    path: '/lightning-protection-studies',
+  },
+];
+ const services3 = [
+  {
+    icon: '/solution-nav3.png', // industrial type icon
+    text: 'INDUSTRIAL',
+    path: '/industrial',
+  },
+  {
+    icon: '/solution-nav5.png',
+    text: 'RENEWABLE',
+    path: '/renewable',
+    subItems: [
+      { text: '1. PSS', path: '/pss' },
+      { text: '2. RSA', path: '/rsa' },
+    ],
+  },
+];
     return (
         <section className="flex overflow-hidden flex-col h-[82vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
             <div className="ml-10 max-w-full w-[1016px]">
@@ -567,6 +553,31 @@ function ServicesComponent() {
                                 </div>
                             </div>
                         </header>
+                        <header className="flex gap-7 items-center mt-14 max-md:mt-10">
+  <div className="self-stretch my-auto text-base font-medium text-red-700 uppercase tracking-[3.36px]">
+    03
+  </div>
+  <div
+    onMouseEnter={() => {
+      setIsHovered3(true);
+      setIsHovered(false);
+      setIsHovered2(false);
+    }}
+    className="flex gap-10 self-stretch my-auto min-w-[240px] w-[287px]"
+  >
+    <h2 className="text-lg hover:text-gray-400 cursor-pointer font-medium text-white uppercase tracking-[3.36px]">
+      CONSULTANCY
+    </h2>
+    <div className="flex flex-col justify-center items-center py-1.5 pr-2.5 pl-2.5 min-h-[29px]">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+        alt=""
+        className="object-contain w-2"
+      />
+    </div>
+  </div>
+</header>
                     </div>
                     <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full">
                         <div className="flex flex-wrap grow gap-10 text-base font-medium text-white uppercase h-full tracking-[3.36px] max-md:mt-10 max-md:max-w-full">
@@ -575,7 +586,11 @@ function ServicesComponent() {
                                 role="separator"
                                 aria-orientation="vertical"
                             ></div>
-                            <div className={`flex flex-col grow shrink-0 items-start my-auto basis-0 w-fit max-md:max-w-full ${isHovered ? "flex" : "hidden"}`}>
+                           <div
+  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
+    isHovered ? "grid" : "hidden"
+  }`}
+>
                                 {services.map((service, index) => (
                                     <ServiceItem
                                         key={index}
@@ -586,7 +601,11 @@ function ServicesComponent() {
                                     />
                                 ))}
                             </div>
-                            <div className={`flex flex-col grow shrink-0 items-start my-auto basis-0 w-fit max-md:max-w-full ${isHovered2 ? "flex" : "hidden"}`}>
+                           <div
+  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
+    isHovered2 ? "grid" : "hidden"
+  }`}
+>
                                 {services2.map((service2, index) => (
                                     <ServiceItem2
                                         key={index}
@@ -597,7 +616,33 @@ function ServicesComponent() {
                                     />
                                 ))}
                             </div>
-                        </div>
+                           <div
+  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
+    isHovered3 ? "grid" : "hidden"
+  }`}
+>
+  {services3.map((service, index) => (
+    <div key={index}>
+      
+      <ServiceItem
+        icon={service.icon}
+        text={service.text}
+        path={service.path}
+        isVisible={isHovered3}
+      />
+
+      {/* Sub items (for Renewable) */}
+      {service.subItems && (
+        <div className="ml-10 mt-3 text-sm text-gray-300">
+          {service.subItems.map((sub, i) => (
+            <div key={i}>{sub.text}</div>
+          ))}
+        </div>
+      )}
+
+    </div>
+  ))}
+</div>  </div>
                     </div>
                 </div>
             </div>
@@ -641,26 +686,58 @@ function IndustriesComponent() {
     ];
 
     return (
-        <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
-            <div className="ml-10 w-full">
-                <div className="flex">
-                    <div className="flex flex-col w-full">
-                        <div className="flex flex-wrap grow gap-10 text-base font-medium text-white h-full uppercase tracking-[3.36px] max-md:mt-10 max-md:max-w-full">
-                            <div className="flex flex-col grow shrink-0 items-start my-auto basis-0 w-fit max-md:max-w-full">
-                                {Industries.map((industry, index) => (
-                                    <IndustriesItem
-                                        key={index}
-                                        icon={industry.icon}
-                                        text={industry.text}
-                                        path={industry.path}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
+  <div className="ml-10 w-full">
+    <div className="flex gap-5 max-md:flex-col">
+
+      {/* 🔴 LEFT SIDE HEADER */}
+      <div className="flex flex-col w-2/5 max-md:w-full">
+        <div className="flex gap-7 items-center mt-14 max-md:mt-10">
+          <div className="text-base font-medium text-red-700 uppercase tracking-[3.36px]">
+            01
+          </div>
+
+          <div className="flex gap-10 items-center">
+            <h2 className="text-lg font-medium text-white uppercase tracking-[3.36px]">
+              OUR INDUSTRIES
+            </h2>
+
+            <div className="flex items-center">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+                alt=""
+                className="w-2"
+              />
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔴 RIGHT SIDE CONTENT */}
+      <div className="flex flex-col w-3/5 max-md:w-full">
+        <div className="flex flex-wrap gap-10 text-base font-medium text-white uppercase tracking-[3.36px] max-md:mt-10">
+
+          {/* Divider line */}
+          <div className="shrink-0 w-0 border-l border-solid border-neutral-700 mt-[9%] min-h-full" />
+
+          {/* Grid */}
+          <div className="grid grid-cols-2 gap-x-20 gap-y-10 grow items-start my-auto">
+            {Industries.map((industry, index) => (
+              <IndustriesItem
+                key={index}
+                icon={industry.icon}
+                text={industry.text}
+                path={industry.path}
+              />
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     );
 }
 
