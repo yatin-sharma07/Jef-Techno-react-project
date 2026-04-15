@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react'
 import Link from 'next/link'
 import { motion } from 'framer-motion';
-import ContactUs from "@/components/ContactUs";
+import ContactUs from "../components/ContactUs";
 
 
 
@@ -1264,7 +1264,7 @@ const WhatWeDoSection = () => {
       {!showSection && (
         <div className={`flex items-center justify-center relative flex-col px-20 pt-16 w-full h-screen max-md:px-5 max-md:py-24 max-md:max-w-full transition-opacity duration-500 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
 
-          <h1 className="Y-axis-text z-50 text-white font-normal text-center absolute inset-0 mx-6 my-[50vh] flex  justify-center text-xl sm:text-4xl uppercase ">Delivering Excellence Across 28 countries</h1>
+          <h1 className="Y-axis-text z-50 text-white font-normal text-center absolute inset-0 mx-6 my-[50vh] flex  justify-center text-xl sm:text-4xl uppercase ">Delivering Excellence Across 30 countries</h1>
           <video
             ref={videoRef}
             onEnded={handleVideoEnd}
@@ -1315,32 +1315,60 @@ const WhatWeDoSection = () => {
               <div className="flex flex-col lg:flex-row mx-auto relative mb-0 w-full max-md:mb-2.5 max-md:max-w-full justify-between">
 
                 {/* Left Section */}
-                <section className="flex flex-wrap w-[100%] xl:w-[40%] justify-between">
+              {/* Left Section */}
+<section className="flex flex-wrap w-[100%] xl:w-[40%] justify-between">
 
-                  <div className="flex flex-row my-auto max-md:ml-0 max-xl:w-full">
-                    <div className="grow max-lg:max-w-full WWD-slider">
-                      <div className="lg:mt-0 xl:-mt-10 lg:my-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 max-xl:justify-self-center max-xl:content-center items-center self-center lg:flex flex-wrap lg:gap-5 lg:h-full max-md:flex-col">
-                        {buttonData.map((button, index) => (
-                          <div key={index} className={`inline-flex Y-axis-WWD-anm max-xl:w-fit ${button.className}`}
-                          >
-                            <button
-                              className={`border-[.5px] p-4 border-white animate-[pulse_2s_infinite] hover:animate-none rounded-full w-32 h-32 md:w-36 md:h-36 2xl:w-44 2xl:h-44 bg-cover bg-center transition-all duration-300 ease-in-out ${index >= buttonData.length - 2 ? 'invisible-xl-placeholder' : 'cursor-pointer'} ${hoveredButtonIndex === index ? 'bg-red-500 border-none' : 'bg-transparent'
-                                }`}
-                              onMouseEnter={() => {
-                                if (index < buttonData.length - 2) {
-                                  setHoveredButtonIndex(index);
-                                }
-                              }}
-                            >
-                              <span className="text-white text-[55%] 2xl:text-sm uppercase leading-none tracking-[0px]">{button.text}</span>
-                            </button>
-                          </div>
+  <div className="flex flex-row my-auto max-md:ml-0 max-xl:w-full">
+    <div className="grow max-lg:max-w-full WWD-slider">
 
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </section>
+      {/* 🔥 FIXED GRID */}
+      <div className="lg:mt-0 xl:-mt-10 lg:my-0 
+        grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
+        gap-y-14 gap-x-10 
+        justify-items-center items-center 
+        self-center max-md:flex-col"
+      >
+
+        {buttonData.map((button, index) => (
+          <div 
+            key={index} 
+            className="inline-flex Y-axis-WWD-anm max-xl:w-fit"
+          >
+            
+            <button
+              className={`
+                border border-white 
+                rounded-full 
+                w-32 h-32 md:w-36 md:h-36 2xl:w-44 2xl:h-44
+                flex items-center justify-center text-center
+                transition-all duration-300 ease-in-out
+
+                ${index >= buttonData.length - 2 
+                  ? 'invisible-xl-placeholder' 
+                  : 'cursor-pointer'}
+
+                ${hoveredButtonIndex === index 
+                  ? 'bg-red-500 border-none scale-110' 
+                  : 'bg-transparent'}
+              `}
+              onMouseEnter={() => {
+                if (index < buttonData.length - 2) {
+                  setHoveredButtonIndex(index);
+                }
+              }}
+            >
+              <span className="text-white text-[55%] 2xl:text-sm uppercase leading-tight px-2">
+                {button.text}
+              </span>
+            </button>
+
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</section>
 
                 {/* Right Section */}
                 <section className="Y-axis-text lg:w-[50%] xl:w-[40%] lg:ml-[20%] flex flex-col"> {/* Ensure the section takes 50% and is aligned to the right */}

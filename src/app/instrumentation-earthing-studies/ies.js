@@ -342,7 +342,7 @@ const services = useMemo(() => [
         </div>
         <header className="flex p-4 ContactUsAnimation flex-col items-center self-center mt-10 w-full text-base text-center text-white max-w-[1391px] max-md:mt-10 max-md:max-w-full">
          <div className="w-full text-3xl max-md:max-w-full">
-  THE PROBLEM: WHY INSTRUMENTATION SYSTEMS FAIL IN WELL-MAINTAINED PLANTS
+  WHY INSTRUMENTATION SYSTEMS FAIL IN WELL-MAINTAINED PLANTS
 </div>
 
 <p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light max-md:mt-10 max-md:max-w-full">
@@ -357,11 +357,11 @@ const services = useMemo(() => [
   In the majority of cases, the root cause is not the instrument by itself. It is the earthing system that underpins it.
 </p>
 
-<p className="ContactUsAnimation self-stretch mt-12 w-[80%] lg:w-[60%] text-center mx-auto font-light text-red-600 max-md:mt-10 max-md:max-w-full">
+<p className="ContactUsAnimation self-stretch mt-6 w-[80%] lg:w-[60%] text-center mx-auto font-light text-[#BD222A] max-md:mt-10 max-md:max-w-full">
   JEF has conducted Instrumentation Earthing Audits across more than 120 control rooms and instrumentation panel rooms, auditing over 9,500 panels, 32,053 junction boxes, and 2,04,963 field instruments and field assets.
 </p>
         </header>
-        <div className="flex ContactUsAnimation flex-col self-center mt-14 max-w-full text-sm md:text-base leading-6 text-center text-red-700 w-[770px] max-md:mt-10">
+        <div className="flex ContactUsAnimation flex-col self-center mt-3 max-w-full text-sm md:text-base leading-6 text-center text-[#BD222A]  w-[770px] max-md:mt-10">
           <p className="px-56 w-full max-md:px-5 max-md:max-w-full">
             Get in touch for any queries and real-life case-studies
           </p>

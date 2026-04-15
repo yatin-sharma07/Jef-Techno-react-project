@@ -1,8 +1,8 @@
 import { Montserrat } from 'next/font/google'
 import "./globals.css";
-import { TranslationProvider } from '@/context/TranslationContext';
-import Navbar from '@/components/Navbar';
-import MainFooter from '@/components/Footer';
+import { TranslationProvider } from '../context/TranslationContext';
+import Navbar from '../components/Navbar';
+import MainFooter from '../components/Footer';
 import Script from 'next/script';
 
 const montserrat = Montserrat({

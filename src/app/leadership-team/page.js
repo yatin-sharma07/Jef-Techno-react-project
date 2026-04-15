@@ -1,4 +1,4 @@
-import ContactUs from '@/components/ContactUs';
+import ContactUs from '../../components/ContactUs';
 
 export const metadata = {
     title: 'Leadership Team | JEF UAE',

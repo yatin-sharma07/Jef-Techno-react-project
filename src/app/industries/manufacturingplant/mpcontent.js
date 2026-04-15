@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link';
-import ContactUs from "@/components/ContactUs";
+import ContactUs from '../../../components/ContactUs';
 
 
 gsap.registerPlugin(ScrollTrigger);

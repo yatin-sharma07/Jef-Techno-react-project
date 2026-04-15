@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ContactUs from "@/components/ContactUs";
+import ContactUs from '../../components/ContactUs';
 
 function SmartDigitalization() {
 

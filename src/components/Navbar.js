@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { TranslationContext } from '@/context/TranslationContext'
+import { TranslationContext } from '../context/TranslationContext'
 import { motion, AnimatePresence } from "framer-motion";
 
 const menuItems = [
@@ -138,10 +138,10 @@ const Navbar = () => {
     return (
         <div
             className={`flex fixed w-full z-[60] overflow-hidden flex-col transition-colors duration-900 ${scrollNav || activeSection
-                ? 'bg-stone-800'
+                ? 'bg-[#312D2D]'
                 : pathname === '/' || pathname === '/about-us' || pathname === '/leadership-team'
                     ? 'lg:bg-transparent'
-                    : 'bg-stone-800'
+                    : 'bg-[#312D2D]'
                 }`}
         >
             <div className="flex flex-col pt-6 w-full h-full max-md:max-w-full">
@@ -322,8 +322,8 @@ const Navbar = () => {
 const navigationItems = [
     { number: "01", title: "About JEF", path: "/about-us" },
     { number: "02", title: "jef leadership Team ", path: "/leadership-team" },  // Add a path for the leadership team
-    { number: "03", title: "Our Clients" },
-    { number: "04", title: "employee login" }
+    { number: "03", title: "Our Clients",path:"/coming-soon" },
+    { number: "04", title: "employee login", path: "/" }
 ];
 
 const contentMap = {
@@ -337,7 +337,7 @@ function AboutSection() {
     const [hoveredItem, setHoveredItem] = useState(null);
 
     return (
-        <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
+        <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#312D2D] max-md:px-5 max-md:pb-24">
             <div className="ml-10 max-w-full w-[994px]">
                 <div className="flex gap-5 max-md:flex-col">
                     <nav className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -408,7 +408,7 @@ const ServiceItem = ({ icon, text, path, isVisible }) => (
       isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
     }`}
   >
-    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+    <div className="w-25 h-25 flex items-center justify-center shrink-0">
       <img
         loading="lazy"
         src={icon}
@@ -428,7 +428,7 @@ const ServiceItem2 = ({ icon, text, path, isVisible }) => (
       isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
     }`}
   >
-    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+    <div className="w-25 h-25 flex items-center justify-center shrink-0">
       <img
         loading="lazy"
         src={icon}
@@ -449,22 +449,22 @@ function ServicesComponent() {
 
    const services = [
   {
-    icon: '/nav-earthing-icon.png',
+    icon: '/nav-earthing-icon2.png',
     text: 'EARTHING STUDIES',
     path: '/earthing-studies',
   },
   {
-    icon: '/nav-lightning-protection-icon.png',
+    icon: '/nav-lightning-protection-icon2.png',
     text: 'LIGHTNING PROTECTION STUDIES',
     path: '/lightning-protection-studies',
   },
   {
-    icon: '/nav-ese-icon.png', 
+    icon: '/nav-ese-icon2.png', 
     text: 'ESE',
     path: '/ese-lightning-protection',
   },
   {
-    icon: '/nav-design-service-icon.png',
+    icon: '/nav-design-service-icon2.png',
     text: 'DESIGN SERVICES',
     path: '/earthing-design',
   },
@@ -472,39 +472,39 @@ function ServicesComponent() {
 
   const services2 = [
   {
-    icon: '/nav-esa-icon.png',
+    icon: '/nav-esa-icon2.png',
     text: 'ESA',
     path: '/earthing-studies',
   },
   {
-    icon: '/nav-audit-icon.png',
+    icon: '/nav-audit-icon2.png',
     text: 'EARTHING AUDIT STUDIES',
     path: '/earthing-studies',
   },
   {
-    icon: '/nav-istrumentation-icon.png',
+    icon: '/nav-istrumentation-icon2.png',
     text: 'INSTRUMENTATION EARTHING',
     path: '/instrumentation-earthing-studies',
   },
   {
-    icon: '/nav-power-studies-icon.png',
+    icon: '/nav-power-studies-icon2.png',
     text: 'POWER STUDIES',
     path: '/power-system-studies',
   },
   {
-    icon: '/nav-lps-icon.png',
+    icon: '/nav-lps-icon2.png',
     text: 'LPS STUDIES',
     path: '/lightning-protection-studies',
   },
 ];
  const services3 = [
   {
-    icon: '/nav-industrial-icon.png', // industrial type icon
+    icon: '/nav-industrial-icon2.png', // industrial type icon
     text: 'INDUSTRIAL',
     path: '/industrial',
   },
   {
-    icon: '/nav-renewable-icon.png',
+    icon: '/nav-renewable-icon2.png',
     text: 'RENEWABLE',
     path: '/renewable',
     subItems: [
@@ -514,148 +514,122 @@ function ServicesComponent() {
   },
 ];
     return (
-        <section className="flex overflow-hidden flex-col h-[82vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
-            <div className="ml-10 max-w-full w-[1016px]">
-                <div className="flex gap-5 max-md:flex-col">
-                    <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
-                        <header
-                            className="flex gap-7 items-center mt-14 max-md:mt-10"
-                        >
-                            <div className="self-stretch my-auto text-base font-medium text-red-700 uppercase tracking-[3.36px]">
-                                01
-                            </div>
-                            <div
-                                onMouseEnter={() => { setIsHovered(true); setIsHovered2(false) }}
-                                className="flex gap-10 self-stretch my-auto min-w-[240px] w-[287px]">
-                                <h2 className="text-lg hover:text-gray-400 cursor-pointer font-medium text-white uppercase tracking-[3.36px]">
-                                    OUR SERVICES
-                                </h2>
-                                <div className="flex flex-col justify-center items-center py-1.5 pr-2.5 pl-2.5 min-h-[29px]">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a?placeholderIfAbsent=true&apiKey=ec02862acd164f0aad3ceef0d2a999c3"
-                                        alt=""
-                                        className="object-contain w-2"
-                                    />
-                                </div>
-                            </div>
-                        </header>
-                        <header
-                            className="flex gap-7 items-center mt-14 max-md:mt-10"
-                        >
-                            <div className="self-stretch my-auto text-base font-medium text-red-700 uppercase tracking-[3.36px]">
-                                02
-                            </div>
-                            <div
-                                onMouseEnter={() => { setIsHovered2(true); setIsHovered(false) }}
-                                className="flex gap-10 self-stretch my-auto min-w-[240px] w-[287px]">
-                                <h2 className="text-lg hover:text-gray-400 cursor-pointer font-medium text-white uppercase tracking-[3.36px]">
-                                    OUR SOLUTION
-                                </h2>
-                                <div className="flex flex-col justify-center items-center py-1.5 pr-2.5 pl-2.5 min-h-[29px]">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a?placeholderIfAbsent=true&apiKey=ec02862acd164f0aad3ceef0d2a999c3"
-                                        alt=""
-                                        className="object-contain w-2"
-                                    />
-                                </div>
-                            </div>
-                        </header>
-                        <header className="flex gap-7 items-center mt-14 max-md:mt-10">
-  <div className="self-stretch my-auto text-base font-medium text-red-700 uppercase tracking-[3.36px]">
-    03
-  </div>
-  <div
-    onMouseEnter={() => {
-      setIsHovered3(true);
-      setIsHovered(false);
-      setIsHovered2(false);
-    }}
-    className="flex gap-10 self-stretch my-auto min-w-[240px] w-[287px]"
-  >
-    <h2 className="text-lg hover:text-gray-400 cursor-pointer font-medium text-white uppercase tracking-[3.36px]">
-      CONSULTANCY
-    </h2>
-    <div className="flex flex-col justify-center items-center py-1.5 pr-2.5 pl-2.5 min-h-[29px]">
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
-        alt=""
-        className="object-contain w-2"
-      />
-    </div>
-  </div>
-</header>
-                    </div>
-                    <div className="flex flex-col ml-5 w-3/5 max-md:ml-0 max-md:w-full">
-                        <div className="flex flex-wrap grow gap-10 text-base font-medium text-white uppercase h-full tracking-[3.36px] max-md:mt-10 max-md:max-w-full">
-                            <div
-                                className="shrink-0 w-0 border-l border-solid border-neutral-700 mt-[9%] min-h-full"
-                                role="separator"
-                                aria-orientation="vertical"
-                            ></div>
-                           <div
-  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
-    isHovered ? "grid" : "hidden"
-  }`}
->
-                                {services.map((service, index) => (
-                                    <ServiceItem
-                                        key={index}
-                                        icon={service.icon}
-                                        text={service.text}
-                                        path={service.path}
-                                        isVisible={isHovered}
-                                    />
-                                ))}
-                            </div>
-                           <div
-  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
-    isHovered2 ? "grid" : "hidden"
-  }`}
->
-                                {services2.map((service2, index) => (
-                                    <ServiceItem2
-                                        key={index}
-                                        icon={service2.icon}
-                                        text={service2.text}
-                                        path={service2.path}
-                                        isVisible={isHovered2}
-                                    />
-                                ))}
-                            </div>
-                           <div
-  className={`grid grid-cols-2 gap-x-20 gap-y-10 grow shrink-0 items-start my-auto basis-0 w-fit ${
-    isHovered3 ? "grid" : "hidden"
-  }`}
->
-  {services3.map((service, index) => (
-    <div key={index}>
-      
-      <ServiceItem
-        icon={service.icon}
-        text={service.text}
-        path={service.path}
-        isVisible={isHovered3}
-      />
+       <section className="flex flex-col h-[82vh] pl-[11%] px-16 pt-5 bg-[#312D2D] max-md:px-5">
 
-      {/* Sub items (for Renewable) */}
-      {service.subItems && (
-        <div className="ml-10 mt-3 text-sm text-gray-300">
-          {service.subItems.map((sub, i) => (
-            <div key={i}>{sub.text}</div>
-          ))}
-        </div>
-      )}
+  <div className="ml-10 w-full max-w-[1016px] h-full">
+    <div className="flex gap-5 h-full max-md:flex-col">
 
-    </div>
-  ))}
-</div>  </div>
-                    </div>
-                </div>
+      {/* ================= LEFT MENU ================= */}
+      <div className="flex flex-col justify-start w-2/5 max-md:w-full">
+
+        {/* PRODUCTS */}
+        <header className="flex gap-7 items-center mt-14">
+          <div className="text-base font-medium text-red-700 tracking-[3.36px]">01</div>
+          <div
+            onMouseEnter={() => { setIsHovered(true); setIsHovered2(false); setIsHovered3(false); }}
+            className="flex gap-10 cursor-pointer"
+          >
+            <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
+              OUR PRODUCTS
+            </h2>
+          </div>
+        </header>
+
+        {/* SOLUTION */}
+        <header className="flex gap-7 items-center mt-14">
+          <div className="text-base font-medium text-red-700 tracking-[3.36px]">02</div>
+          <div
+            onMouseEnter={() => { setIsHovered2(true); setIsHovered(false); setIsHovered3(false); }}
+            className="flex gap-10 cursor-pointer"
+          >
+            <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
+              OUR SOLUTION
+            </h2>
+          </div>
+        </header>
+
+        {/* CONSULTANCY */}
+        <header className="flex gap-7 items-center mt-14">
+          <div className="text-base font-medium text-red-700 tracking-[3.36px]">03</div>
+          <div
+            onMouseEnter={() => { setIsHovered3(true); setIsHovered(false); setIsHovered2(false); }}
+            className="flex gap-10 cursor-pointer"
+          >
+            <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
+              CONSULTANCY
+            </h2>
+          </div>
+        </header>
+
+      </div>
+
+      {/* ================= RIGHT CONTENT ================= */}
+      <div className="flex flex-col w-3/5 h-full text-white">
+
+        <div className="flex h-full items-start gap-10">
+
+          {/* Divider */}
+          <div className="w-[1px] bg-neutral-700 h-[70%] mt-10" />
+
+          {/* STACKED CONTENT */}
+          <div className="relative flex-1 h-full flex items-start">
+
+            {/* ===== SERVICES 1 ===== */}
+            <div
+              className={`absolute inset-0 grid grid-cols-2 gap-x-20 gap-y-10 content-center
+              transition-all duration-300
+              ${isHovered ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"}`}
+            >
+              {services.map((service, index) => (
+                <ServiceItem key={index} {...service} isVisible={isHovered} />
+              ))}
             </div>
-        </section>
+
+            {/* ===== SERVICES 2 ===== */}
+            <div
+              className={`absolute inset-0 grid grid-cols-2 gap-x-20 gap-y-10 content-center
+              transition-all duration-300
+              ${isHovered2 ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"}`}
+            >
+              {services2.map((service2, index) => (
+                <ServiceItem2 key={index} {...service2} isVisible={isHovered2} />
+              ))}
+            </div>
+
+            {/* ===== SERVICES 3 ===== */}
+            <div
+              className={`absolute inset-0 grid grid-cols-2 gap-x-20 gap-y-10 content-center
+              transition-all duration-300
+              ${isHovered3 ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"}`}
+            >
+              {services3.map((service, index) => (
+                <div key={index} className="group">
+
+                  <ServiceItem {...service} isVisible={isHovered3} />
+
+                  {service.subItems && (
+                    <div className="ml-10 mt-3 text-sm text-gray-300 
+                      opacity-0 translate-y-2 
+                      group-hover:opacity-100 group-hover:translate-y-0 
+                      transition-all duration-300"
+                    >
+                      {service.subItems.map((sub, i) => (
+                        <div key={i}>{sub.text}</div>
+                      ))}
+                    </div>
+                  )}
+
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     );
 }
 
@@ -691,7 +665,7 @@ function IndustriesComponent() {
     ];
 
     return (
-       <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-stone-900 max-md:px-5 max-md:pb-24">
+       <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#312D2D] max-md:px-5 max-md:pb-24">
   <div className="ml-10 w-full">
     <div className="flex gap-5 max-md:flex-col">
 
