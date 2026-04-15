@@ -7,6 +7,7 @@ import { TranslationContext } from '@/context/TranslationContext'
 import { motion, AnimatePresence } from "framer-motion";
 
 const menuItems = [
+    {label:'Home', hasDropdown: false, path: '/' },
     { label: 'About', hasDropdown: true },
     { label: 'Our Business', hasDropdown: true },
     { label: 'Our Industries', hasDropdown: true },
@@ -179,7 +180,9 @@ const Navbar = () => {
                                         </button>
                                     )}
                                     {item.hasDropdown && (
-                                        <div className="flex cursor-pointer flex-col justify-center items-center self-stretch px-2.5 py-3.5 my-auto w-8 min-h-[20px]">
+                                        <div className="flex cursor-pointer flex-col justify-center items-center self-stretch px-2.5 py-3.5 my-auto w-8 min-h-[20px]"
+                                        onMouseEnter={() => handleMenuHover(item.label)}
+                                            onMouseLeave={handleMouseLeave}>
                                             <img
                                                 onMouseEnter={() => handleMenuHover(item.label)}
                                                 onMouseLeave={handleMouseLeave}
