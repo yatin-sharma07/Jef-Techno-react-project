@@ -403,39 +403,45 @@ function AboutSection() {
 
 
 const ServiceItem = ({ icon, text, path, isVisible }) => (
-    <div
-        className={`flex gap-4 items-center mt-8 first:mt-10 transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
-            }`}
-    >
-        <img
-            loading="lazy"
-            src={icon}
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
-        />
-        <Link href={path}>
-            <div className="text-xs self-stretch hover:text-gray-400 my-auto">{text}</div>
-        </Link>
+  <div
+    className={`flex gap-5 items-center mt-8 first:mt-10 min-h-[50px] transition-all duration-500 ease-in-out ${
+      isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
+    }`}
+  >
+    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+      <img
+        loading="lazy"
+        src={icon}
+        alt=""
+        className="w-full h-full object-contain"
+      />
     </div>
-);
 
+    <Link href={path}>
+      <div className="text-sm hover:text-gray-400">{text}</div>
+    </Link>
+  </div>
+);
 const ServiceItem2 = ({ icon, text, path, isVisible }) => (
-    <div
-        className={`flex gap-4 items-center mt-8 first:mt-10 transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
-            }`}
-    >
-        <img
-            loading="lazy"
-            src={icon}
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
-        />
-        <Link href={path}>
-            <div className="text-xs self-stretch hover:text-gray-400 my-auto">{text}</div>
-        </Link>
+  <div
+    className={`flex gap-5 items-center mt-8 first:mt-10 min-h-[50px] transition-all duration-500 ease-in-out ${
+      isVisible ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
+    }`}
+  >
+    <div className="w-10 h-10 flex items-center justify-center shrink-0">
+      <img
+        loading="lazy"
+        src={icon}
+        alt=""
+        className="w-full h-full object-contain"
+      />
     </div>
-);
 
+    <Link href={path}>
+      <div className="text-sm hover:text-gray-400">{text}</div>
+    </Link>
+  </div>
+);
 function ServicesComponent() {
     const [isHovered, setIsHovered] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
@@ -660,23 +666,19 @@ function ServicesComponent() {
 
 
 
-
 const IndustriesItem = ({ path, icon, text, isVisible }) => (
-    <div
-        className={`flex gap-4 items-center mt-8 first:mt-10 transition-all duration-500 ease-in-out`}
-    >
-        <img
-            loading="lazy"
-            src={icon}
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
-        />
-        <Link href={path}>
-            <div className="text-xs self-stretch  hover:text-gray-400 my-auto">{text}</div>
-        </Link>
-    </div>
+  <div className="flex gap-4 items-center mt-8 first:mt-10 transition-all duration-500 ease-in-out">
+    <img
+      loading="lazy"
+      src={icon}
+      alt=""
+      className="object-contain shrink-0 self-stretch my-auto w-9 aspect-square" 
+    />
+    <Link href={path}>
+      <div className="text-xs self-stretch hover:text-gray-400 my-auto">{text}</div>
+    </Link>
+  </div>
 );
-
 function IndustriesComponent() {
 
     const Industries = [
