@@ -887,7 +887,7 @@ const NavSeparator = () => (
 );
 
 const Navigation = () => {
-  const pathname = usePathname();
+  const pathname = usePathname1();
 
   const navItems = [
     { text: "HOME", href: "/" },
