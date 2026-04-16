@@ -49,7 +49,7 @@ export default function ComingSoonPage() {
           {/* Heading */}
           <div className="space-y-6">
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-              Coming Soon
+              In Development
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto">
               We’re working hard to bring something amazing.
@@ -61,30 +61,7 @@ export default function ComingSoonPage() {
           {/* Email Form */}
          
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Intelligent Flow</h3>
-              <p className="text-sm text-gray-500">
-                Adaptive systems that optimize performance and output.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Kinetic Layouts</h3>
-              <p className="text-sm text-gray-500">
-                Modern UI with smooth motion and clean structure.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Absolute Security</h3>
-              <p className="text-sm text-gray-500">
-                Enterprise-grade protection and privacy.
-              </p>
-            </div>
-
-          </div>
+        
         </section>
       </main>
 

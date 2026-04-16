@@ -1315,55 +1315,54 @@ const WhatWeDoSection = () => {
               <div className="flex flex-col lg:flex-row mx-auto relative mb-0 w-full max-md:mb-2.5 max-md:max-w-full justify-between">
 
                 {/* Left Section */}
-              {/* Left Section */}
-<section className="flex flex-wrap w-[100%] xl:w-[40%] justify-between">
+                <section className="flex flex-wrap w-[100%] xl:w-[40%] justify-between">
 
   <div className="flex flex-row my-auto max-md:ml-0 max-xl:w-full">
     <div className="grow max-lg:max-w-full WWD-slider">
 
-      {/* 🔥 FIXED GRID */}
-      <div className="lg:mt-0 xl:-mt-10 lg:my-0 
-        grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
-        gap-y-14 gap-x-10 
-        justify-items-center items-center 
-        self-center max-md:flex-col"
-      >
+      <div className="relative w-[420px] h-[480px]">
 
-        {buttonData.map((button, index) => (
-          <div 
-            key={index} 
-            className="inline-flex Y-axis-WWD-anm max-xl:w-fit"
-          >
-            
-            <button
-              className={`
-                border border-white 
-                rounded-full 
-                w-32 h-32 md:w-36 md:h-36 2xl:w-44 2xl:h-44
-                flex items-center justify-center text-center
-                transition-all duration-300 ease-in-out
+        {/* ✅ MOVE THIS HERE */}
+        {(() => {
+          const positions = [
+            [350, 0, 165],
+            [180, 80, 165],
+            [30, 200, 165],
+            [250, 280, 165],
+            [400, 180, 165],
+            [90, 370, 165],
+          ];
 
-                ${index >= buttonData.length - 2 
-                  ? 'invisible-xl-placeholder' 
-                  : 'cursor-pointer'}
+          return buttonData.slice(0, positions.length).map((button, index) => {
+            const [left, top, size] = positions[index];
 
-                ${hoveredButtonIndex === index 
-                  ? 'bg-red-500 border-none scale-110' 
-                  : 'bg-transparent'}
-              `}
-              onMouseEnter={() => {
-                if (index < buttonData.length - 2) {
-                  setHoveredButtonIndex(index);
-                }
-              }}
-            >
-              <span className="text-white text-[55%] 2xl:text-sm uppercase leading-tight px-2">
-                {button.text}
-              </span>
-            </button>
-
-          </div>
-        ))}
+            return (
+              <div
+                key={index}
+                className="absolute Y-axis-WWD-anm"
+                style={{ left, top }}
+              >
+                <button
+                  style={{ width: size, height: size }}
+                  className={`
+                    border border-white rounded-full
+                    flex items-center justify-center text-center
+                    transition-all duration-300 ease-in-out
+                    ${hoveredButtonIndex === index
+                      ? 'bg-red-500 border-none scale-110'
+                      : 'bg-transparent cursor-pointer'}
+                  `}
+                  onMouseEnter={() => setHoveredButtonIndex(index)}
+                  onMouseLeave={() => setHoveredButtonIndex(null)}
+                >
+                  <span className="text-white text-[55%] uppercase leading-tight px-2">
+                    {button.text}
+                  </span>
+                </button>
+              </div>
+            );
+          });
+        })()}
 
       </div>
     </div>
@@ -1398,11 +1397,13 @@ const WhatWeDoSection = () => {
                             <p className="self-stretch text-xs 2xl:text-base mt-16 2xl:w-[90%] 2xl:leading-7 text-white ">
                               {buttonData[hoveredButtonIndex]?.description || "Earthing studies assess the performance of grounding systems through soil resistivity testing and resistance measurements. These studies help ensure compliance with safety standards, protect equipment, and prevent electrical hazards."}
                             </p>
-                            <Link href={buttonData[hoveredButtonIndex]?.path}>
-                              <button className="gap-2.5 text-xs 2xl:text-base self-stretch px-5 py-2 mt-12  text-red-700 uppercase bg-white hover:bg-red-700 hover:text-white 2xl:py-3 rounded-[50px] 2xl:px-12">
-                                Read more
-                              </button>
-                            </Link>
+                            {hoveredButtonIndex !== null && buttonData[hoveredButtonIndex]?.path && (
+  <Link href={buttonData[hoveredButtonIndex].path}>
+    <button className="gap-3 ...">
+      Read more
+    </button>
+  </Link>
+)}
                           </div>
                         </div>
                       </div>
@@ -1421,20 +1422,50 @@ const WhatWeDoSection = () => {
 
                   <div className="flex flex-row my-auto max-md:ml-0 max-xl:w-full">
                     <div className="grow max-lg:max-w-full WWD-slider">
-                      <div className="lg:mt-0 xl:-mt-10 lg:my-0 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-3 gap-4 max-xl:justify-self-center max-xl:content-center items-center self-center lg:flex flex-wrap lg:gap-5 lg:h-full max-md:flex-col">
-                        {buttonData2.map((button, index) => (
-                          <div key={index} className={`inline-flex Y-axis-WWD-anm max-xl:w-fit ${button.className}`}
-                          >
-                            <button
-                              className={`border-[.5px] p-4 border-white animate-[pulse_2s_infinite] hover:animate-none rounded-full w-32 h-32 md:w-32 md:h-32 xl:w-36 xl:h-36 2xl:w-44 2xl:h-44 bg-cover bg-center cursor-pointer transition-all duration-300 ease-in-out ${hoveredButtonIndex2 === index ? 'bg-red-500 border-none' : 'bg-transparent'}`}
-                              onMouseEnter={() => setHoveredButtonIndex2(index)}
-                            >
-                              <span className="text-white text-[55%] 2xl:text-sm uppercase leading-none tracking-[0px]">{button.text}</span>
-                            </button>
-                          </div>
+                     <div className="relative w-[420px] h-[480px]">
 
-                        ))}
-                      </div>
+  {(() => {
+    const positions = [
+      [350, 0, 165],
+      [180, 80, 165],
+      [30, 200, 165],
+      [250, 280, 165],
+      [400, 180, 165],
+      [90, 370, 165],
+    ];
+
+    return buttonData2.slice(0, positions.length).map((button, index) => {
+      const [left, top, size] = positions[index];
+
+      return (
+        <div
+          key={index}
+          className="absolute Y-axis-WWD-anm"
+          style={{ left, top }}
+        >
+          <button
+            style={{ width: size, height: size }}
+            className={`
+              border border-white rounded-full
+              flex items-center justify-center text-center
+              transition-all duration-300 ease-in-out
+              ${hoveredButtonIndex2 === index
+                ? 'bg-red-500 border-none scale-110'
+                : 'bg-transparent cursor-pointer'}
+            `}
+            onMouseEnter={() => setHoveredButtonIndex2(index)}
+            onMouseLeave={() => setHoveredButtonIndex2(null)}
+          >
+            <span className="text-white text-[55%] uppercase leading-tight px-2">
+              {button.text}
+            </span>
+          </button>
+        </div>
+      );
+    });
+  })()}
+
+</div>
                     </div>
                   </div>
                 </section>

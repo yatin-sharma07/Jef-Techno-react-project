@@ -1,95 +1,12 @@
 "use client";
+import ComingSoonPage from "../coming-soon/page";
 
-import React from "react";
 
 export default function Page() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f9f9fc] text-gray-900 relative overflow-hidden">
-      
-      {/* 🔴 Background Blobs */}
-      <div className="absolute -z-10 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[120px] -top-20 -left-20"></div>
-      <div className="absolute -z-10 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-[100px] bottom-0 right-0"></div>
-
-      {/* 🔴 NAVBAR */}
-      <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm">
-        <nav className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-          <div className="text-2xl font-bold tracking-tight">
-            YourBrand
-          </div>
-
-          <div className="hidden md:flex gap-8 items-center">
-            <span className="text-gray-500 hover:text-red-600 cursor-pointer">
-              Platform
-            </span>
-            <span className="text-gray-500 hover:text-red-600 cursor-pointer">
-              Vision
-            </span>
-            <span className="text-gray-500 hover:text-red-600 cursor-pointer">
-              Manifesto
-            </span>
-          </div>
-
-          <button className="bg-red-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-red-700 transition">
-            Get Early Access
-          </button>
-        </nav>
-      </header>
-
-      {/* 🔴 MAIN */}
-      <main className="flex-grow flex flex-col items-center justify-center px-6 pt-28">
-        <section className="max-w-4xl w-full text-center space-y-12 py-20">
-
-          {/* Progress Bar */}
-          <div className="flex justify-center">
-            <div className="w-48 h-1 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-full bg-red-600 w-1/3 animate-pulse"></div>
-            </div>
-          </div>
-
-          {/* Heading */}
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-              Coming Soon
-            </h1>
-            <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto">
-              We’re working hard to bring something amazing.
-              <br className="hidden md:block" />
-              Stay tuned.
-            </p>
-          </div>
-
-          {/* Email Form */}
-         
-          {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Intelligent Flow</h3>
-              <p className="text-sm text-gray-500">
-                Adaptive systems that optimize performance and output.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Kinetic Layouts</h3>
-              <p className="text-sm text-gray-500">
-                Modern UI with smooth motion and clean structure.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-xl text-left space-y-4 hover:border-red-200 border transition">
-              <h3 className="font-bold">Absolute Security</h3>
-              <p className="text-sm text-gray-500">
-                Enterprise-grade protection and privacy.
-              </p>
-            </div>
-
-          </div>
-        </section>
-      </main>
-
-      {/* 🔴 FOOTER */}
-      
-    </div>
+   <>
+   <div>
+    <ComingSoonPage/>
+    </div></>
   );
 }

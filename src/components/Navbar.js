@@ -740,6 +740,8 @@ const FAQComponent = () => {
             content: [
                 { label: "About Us", path: "/about-us" },
                 { label: "JEF Leadership Team", path: "/leadership-team" },
+                 { label:"Our Clients", path: "/coming-soon" },
+                 { label: "employee login", path: "/coming-soon" }
             ],
             isOpen: false,
         },
@@ -773,6 +775,15 @@ const FAQComponent = () => {
                     ],
                     isOpen: false,
                 },
+                 {
+      label: "Consultancy",
+      subContent: [
+        { label: "Industrial", path: "/industrial" },
+        { label: "Renewable", path: "/renewable" },
+        { label: "PSS", path: "/pss" },
+        { label: "RSA", path: "/rsa" },
+      ],
+    },
             ],
             isOpen: false,
         },
