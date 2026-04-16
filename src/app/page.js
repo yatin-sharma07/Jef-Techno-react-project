@@ -1498,11 +1498,13 @@ const WhatWeDoSection = () => {
                             <p className="self-stretch text-xs 2xl:text-base mt-16 2xl:w-[90%] 2xl:leading-7 text-white ">
                               {buttonData2[hoveredButtonIndex2]?.description || "Earthing studies assess the performance of grounding systems through soil resistivity testing and resistance measurements. These studies help ensure compliance with safety standards, protect equipment, and prevent electrical hazards."}
                             </p>
-                            <Link href={buttonData2[hoveredButtonIndex2]?.path}>
-                              <button className="gap-2.5 text-xs 2xl:text-base self-stretch px-5 py-2 mt-12  text-red-700 uppercase bg-white hover:bg-red-700 hover:text-white 2xl:py-3 rounded-[50px] 2xl:px-12">
-                                Read more
-                              </button>
-                            </Link>
+                            {buttonData2[hoveredButtonIndex2]?.path && (
+  <Link href={buttonData2[hoveredButtonIndex2].path}>
+    <button className="gap-2.5 text-xs 2xl:text-base self-stretch px-5 py-2 mt-12 text-red-700 uppercase bg-white hover:bg-red-700 hover:text-white 2xl:py-3 rounded-[50px] 2xl:px-12">
+      Read more
+    </button>
+  </Link>
+)}
                           </div>
                         </div>
                       </div>
